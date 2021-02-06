@@ -70,7 +70,7 @@ $('.randomB').click(function(){
         localStorage.setItem('name', drinkName);
 
         let drinkIngredients = drinkResult.map(function(data){
-            console.log("test: " + data.strIngredient1);
+            // console.log("test: " + data.strIngredient1);
             // let test = String(data.strIngredient1);
             // let test = data.strIngredient1.toString();
             // console.log("test2: " + test);
@@ -107,9 +107,17 @@ $('.randomB').click(function(){
             let filteredArray = ingredients.filter(function(el){
                 return el != null;
             });
-            return new Array(filteredArray);
+            for(let i = 0; i < filteredArray.length; i++){
+                console.log("Before return: " + filteredArray[i]);
+            };
+
+            return filteredArray;
         });
-        console.log("Ingredients Mapping: " + drinkIngredients);
+        console.log("Post-filtered: " + drinkIngredients);
+        // let jsonParse = drinkIngredients[1];
+        // console.log("Checking data: " + jsonParse);
+        // let obj = JSON.parse(jsonParse);
+        // console.log("Parse Test: " + obj);
         console.log(Array.isArray(drinkIngredients));
         localStorage.setItem('mix', drinkIngredients);
         // function appendTheIngredientsList(drinkIngredients){
@@ -139,8 +147,8 @@ $('.randomB').click(function(){
         console.log(picture);
         let theMix = localStorage.getItem('mix');
         console.log("After retrieved array " + theMix);
-        for(let i = 0; i < theMix.length; i++){
-            console.log("As it listed: " + theMix[i]);
+        for(let i = 0; i < drinkIngredients.length; i++){
+            console.log("As it listed: " + drinkIngredients[i]);
         };
         // theMix.forEach(function(item){
         //     console.log("Item: " + item);
