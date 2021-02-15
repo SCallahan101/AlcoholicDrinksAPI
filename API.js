@@ -39,22 +39,30 @@ $('.baseB').click(function(){
    
     `);
 });
+
+//Button to get Popular drinks Ingredients
 $('.nameB').click(function(){
     console.log("name button was clicked");
     $("#main-container").html(`
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Search</p>
     <div class="buttonsContainer">
-        <button class="PageButton">Margarita</button>
-        <button class="PageButton">Mojito</button>
-        <button class="PageButton">Cosmopolitan</button>
-        <button class="PageButton">Moscow Mule</button>
-        <button class="PageButton">Manhattan</button>
-        <button class="PageButton">Old Fashioned</button>
+        <button class="PageButton popularDrink">Margarita</button>
+        <button class="PageButton popularDrink">Mojito</button>
+        <button class="PageButton popularDrink">Cosmopolitan</button>
+        <button class="PageButton popularDrink">Moscow Mule</button>
+        <button class="PageButton popularDrink">Manhattan</button>
+        <button class="PageButton popularDrink">Old Fashioned</button>
         <button class="PageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
+$("#main-container").on('click', ".popularDrink",function(){
+    console.log('The popular drinks has been selected');
+});
+
+
+//Randomize Button
 $('.randomB').click(function(){
     console.log("randomize button was clicked");
     $.getJSON(randomDrinkAPI, function(data){
@@ -67,80 +75,6 @@ $('.randomB').click(function(){
             return name;
         });
         console.log("Name of drink: " + drinkName);
-
-        //Getting drink's ingredients
-        // let drinkIngredients = drinkResult.map(function(data){
-        //     let ingredients = [
-        //         data.strIngredient1, 
-        //         data.strIngredient2, 
-        //         data.strIngredient3, 
-        //         data.strIngredient4, 
-        //         data.strIngredient5, 
-        //         data.strIngredient6, 
-        //         data.strIngredient7, 
-        //         data.strIngredient8, 
-        //         data.strIngredient9, 
-        //         data.strIngredient10
-        //     ];
-        //     // return ingredients;
-        //     console.log("Pre-filter: " + ingredients);
-        //     let filteredArray = ingredients.filter(function(el){
-        //         return el != null;
-        //     });
-        //     console.log("Post-filter with no Null(s): " + filteredArray);
-        //     return filteredArray;
-        //     // console.log("Post-filter: " + filteredArray);
-        //     // let legitArray = [];
-        //     // for(let i = 0; i < filteredArray.length; i++){
-        //     //     // console.log("Before return: " + filteredArray[i]);
-        //     //     legitArray.push(filteredArray[i]);
-        //     //     console.log(legitArray);
-        //     // };
-
-        //     // return new Array(legitArray);
-        // });
-        // console.log("Info received: " + drinkIngredients);
-        // // let filteredArray = drinkIngredients.filter(function(el){
-        // //     return el != null;
-        // // });
-        // // console.log("Post-filter: " + filteredArray);
-        // let legitArray = [];
-        // for(let i = 0; i < drinkIngredients.length; i++){
-        //     // console.log("Before return: " + drinkIngredients[i]);
-        //     legitArray.push(drinkIngredients[i]);
-        //     console.log(legitArray);
-        // };
-        // console.log("After arrangement set up: " + legitArray);
-        // legitArray[0].forEach(function(item, i){
-        //     console.log("Item: " + item);
-        //     // $('#ingredientsList').append(`<li>${item}</li>`);
-        //     $("<li>" + item + "</li>").appendTo("#ingredientsList");
-        // });
-        
-
-        // new Array(legitArray);
-
-
-        // let testGround = $.makeArray(drinkIngredients);
-        // console.log("huh " + testGround);
-
-        // let outsideEmptyArray = [];
-        // outsideEmptyArray.push(drinkIngredients);
-        // console.log(outsideEmptyArray + " ??? ");
-        // // console.log("Post-filter: " + drinkIngredients);
-        // for(let i = 0; i < outsideEmptyArray.length; i++){
-        //     console.log("Appending parts: " + outsideEmptyArray[i]);
-        // };
-     
-        // $.map(drinkIngredients, function(val, i){
-        //     console.log("Mapping Test: " + val + " " + i);
-        // });
-
-        // console.log(Array.isArray(drinkIngredients));
-
-        // for(let i = 0; i < drinkIngredients.length; i++){
-        //     console.log("As it listed: " + drinkIngredients[i]);
-        // };
 
         //Retrieve url of drink
         let drinkPic = drinkResult.map(function(data){
@@ -163,22 +97,13 @@ $('.randomB').click(function(){
         </div>
         `);
     })
-    // $("#main-container").html(`
-    // <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    // <p class="">Select Your Choice of Search</p>
-    // <div class="buttonsContainer">
-    //     <div id="resultOfRandomize">
-    //     </div>
-    //     <button class="mainMenu">Main Menu</button>
-    // </div>
-    // `);
 });
 $('.randomB').click(function(){
     console.log("randomize button was clicked");
     $.getJSON(randomDrinkAPI, function(data){
         console.log(data.drinks);
         let drinkResult = data.drinks;
-        
+        //Get Drink Ingredients
         let drinkIngredients = drinkResult.map(function(data){
             let ingredients = [
                 data.strIngredient1, 
@@ -229,6 +154,7 @@ $('.randomB').click(function(){
     });
 });
 
+//Go back to Main Page
 $("#main-container").on('click', ".mainMenu", function(){
     console.log("The main menu button was clicked");
     localStorage.clear();
