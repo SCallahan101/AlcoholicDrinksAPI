@@ -58,117 +58,106 @@ $('.nameB').click(function(){
 $('.randomB').click(function(){
     console.log("randomize button was clicked");
     $.getJSON(randomDrinkAPI, function(data){
-        // console.log(data);
-        // console.log(JSON.stringify(data));
         console.log(data.drinks);
         let drinkResult = data.drinks;
+
+        //Getting drink name
         let drinkName = drinkResult.map(function(info){
             let name = info.strDrink;
             return name;
         });
         console.log("Name of drink: " + drinkName);
-        localStorage.setItem('name', drinkName);
 
-        let drinkIngredients = drinkResult.map(function(data){
-            // console.log("test: " + data.strIngredient1);
-            // let test = String(data.strIngredient1);
-            // let test = data.strIngredient1.toString();
-            // console.log("test2: " + test);
-            let ingredients = [
-                data.strIngredient1, 
-                data.strIngredient2, 
-                data.strIngredient3, 
-                data.strIngredient4, 
-                data.strIngredient5, 
-                data.strIngredient6, 
-                data.strIngredient7, 
-                data.strIngredient8, 
-                data.strIngredient9, 
-                data.strIngredient10
-            ];
-            // let test = JSON.parse(data.strIngredient1);
-            // console.log(test + " eh");
-            // let ingredients = {
-            //     item1: test,
-                // item2: data.strIngredient2,
-                // item3: data.strIngredient3,
-                // item4: data.strIngredient4,
-                // item5: data.strIngredient5,
-                // item6: data.strIngredient6,
-                // item7: data.strIngredient7,
-                // item8: data.strIngredient8,
-                // item9: data.strIngredient9,
-                // item10: data.strIngredient10,
-            // }
-            // for(i=1;i<=10;i++) {
-            //      console.log(i); 
-            //     }
-            console.log("Pre-filter: " + ingredients);
-            let filteredArray = ingredients.filter(function(el){
-                return el != null;
-            });
-            for(let i = 0; i < filteredArray.length; i++){
-                console.log("Before return: " + filteredArray[i]);
-            };
+        //Getting drink's ingredients
+        // let drinkIngredients = drinkResult.map(function(data){
+        //     let ingredients = [
+        //         data.strIngredient1, 
+        //         data.strIngredient2, 
+        //         data.strIngredient3, 
+        //         data.strIngredient4, 
+        //         data.strIngredient5, 
+        //         data.strIngredient6, 
+        //         data.strIngredient7, 
+        //         data.strIngredient8, 
+        //         data.strIngredient9, 
+        //         data.strIngredient10
+        //     ];
+        //     // return ingredients;
+        //     console.log("Pre-filter: " + ingredients);
+        //     let filteredArray = ingredients.filter(function(el){
+        //         return el != null;
+        //     });
+        //     console.log("Post-filter with no Null(s): " + filteredArray);
+        //     return filteredArray;
+        //     // console.log("Post-filter: " + filteredArray);
+        //     // let legitArray = [];
+        //     // for(let i = 0; i < filteredArray.length; i++){
+        //     //     // console.log("Before return: " + filteredArray[i]);
+        //     //     legitArray.push(filteredArray[i]);
+        //     //     console.log(legitArray);
+        //     // };
 
-            return filteredArray;
-        });
-        console.log("Post-filtered: " + drinkIngredients);
-        // let jsonParse = drinkIngredients[1];
-        // console.log("Checking data: " + jsonParse);
-        // let obj = JSON.parse(jsonParse);
-        // console.log("Parse Test: " + obj);
-        console.log(Array.isArray(drinkIngredients));
-        localStorage.setItem('mix', drinkIngredients);
-        // function appendTheIngredientsList(drinkIngredients){
-        //     let ingredients = drinkIngredients;
-        //     let items = document.getElementById("ingredientsList");
-        //     for(let i = 0; i < ingredients.length; i++){
-        //         let item = document.createElement("li");
-        //         item.innerHTML = ingredients[i];
-        //         items.appendChild(item);
-        //     }
-        // }
-        // appendTheIngredientsList();
-
-        // $.each(theList, function(index, value){
-        //     console.log("append should works: " + index + " = " + value);
-        //     $("#resultOfRandomize ul").append($("<li>" + value + "</li>"));
+        //     // return new Array(legitArray);
         // });
+        // console.log("Info received: " + drinkIngredients);
+        // // let filteredArray = drinkIngredients.filter(function(el){
+        // //     return el != null;
+        // // });
+        // // console.log("Post-filter: " + filteredArray);
+        // let legitArray = [];
+        // for(let i = 0; i < drinkIngredients.length; i++){
+        //     // console.log("Before return: " + drinkIngredients[i]);
+        //     legitArray.push(drinkIngredients[i]);
+        //     console.log(legitArray);
+        // };
+        // console.log("After arrangement set up: " + legitArray);
+        // legitArray[0].forEach(function(item, i){
+        //     console.log("Item: " + item);
+        //     // $('#ingredientsList').append(`<li>${item}</li>`);
+        //     $("<li>" + item + "</li>").appendTo("#ingredientsList");
+        // });
+        
+
+        // new Array(legitArray);
+
+
+        // let testGround = $.makeArray(drinkIngredients);
+        // console.log("huh " + testGround);
+
+        // let outsideEmptyArray = [];
+        // outsideEmptyArray.push(drinkIngredients);
+        // console.log(outsideEmptyArray + " ??? ");
+        // // console.log("Post-filter: " + drinkIngredients);
+        // for(let i = 0; i < outsideEmptyArray.length; i++){
+        //     console.log("Appending parts: " + outsideEmptyArray[i]);
+        // };
+     
+        // $.map(drinkIngredients, function(val, i){
+        //     console.log("Mapping Test: " + val + " " + i);
+        // });
+
+        // console.log(Array.isArray(drinkIngredients));
+
+        // for(let i = 0; i < drinkIngredients.length; i++){
+        //     console.log("As it listed: " + drinkIngredients[i]);
+        // };
+
+        //Retrieve url of drink
         let drinkPic = drinkResult.map(function(data){
             let img = data.strDrinkThumb;
             return img;
         });
         console.log("Link for the drink: " + drinkPic);
-        localStorage.setItem('picUrl', drinkPic);
-        let name = localStorage.getItem('name');
-        console.log(name);
-        let picture = localStorage.getItem('picUrl');
-        console.log(picture);
-        let theMix = localStorage.getItem('mix');
-        console.log("After retrieved array " + theMix);
-        for(let i = 0; i < drinkIngredients.length; i++){
-            console.log("As it listed: " + drinkIngredients[i]);
-        };
-        // theMix.forEach(function(item){
-        //     console.log("Item: " + item);
-        //     $("#ingredientsList").append("<li>" + item + "</li>");
-        // });
 
-        // console.log("Post-filtered: " + noNullArray);
-        // $.map(noNullArray, function(val){
-        //     console.log("The Mix are: " + val);
-        //     $("#ingredientsList").append("<li>" + val + "</li>");
-        // });
+        //given DOM changes from data results
         $("#main-container").html(`
-        <h3 class="">Your Randomized Drink</h3>
+        <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfRandomize">
-                <h3>${name}</h3>
-                <img src="${picture}">
-                <ul id="ingredientsList">
-                    
-                </ul>
+                <h3>"${drinkName}"</h3>
+                <img class="picOfDrink" src="${drinkPic}">
+                <h3>Drink's Ingredient(s)</h3>
+                <ul id="ingredientsList"></ul>
             </div>
             <button class="mainMenu">Main Menu</button>
         </div>
@@ -183,6 +172,61 @@ $('.randomB').click(function(){
     //     <button class="mainMenu">Main Menu</button>
     // </div>
     // `);
+});
+$('.randomB').click(function(){
+    console.log("randomize button was clicked");
+    $.getJSON(randomDrinkAPI, function(data){
+        console.log(data.drinks);
+        let drinkResult = data.drinks;
+        
+        let drinkIngredients = drinkResult.map(function(data){
+            let ingredients = [
+                data.strIngredient1, 
+                data.strIngredient2, 
+                data.strIngredient3, 
+                data.strIngredient4, 
+                data.strIngredient5, 
+                data.strIngredient6, 
+                data.strIngredient7, 
+                data.strIngredient8, 
+                data.strIngredient9, 
+                data.strIngredient10
+            ];
+            // return ingredients;
+            console.log("Pre-filter: " + ingredients);
+            let filteredArray = ingredients.filter(function(el){
+                return el != null;
+            });
+            console.log("Post-filter with no Null(s): " + filteredArray);
+            return filteredArray;
+            // console.log("Post-filter: " + filteredArray);
+            // let legitArray = [];
+            // for(let i = 0; i < filteredArray.length; i++){
+            //     // console.log("Before return: " + filteredArray[i]);
+            //     legitArray.push(filteredArray[i]);
+            //     console.log(legitArray);
+            // };
+
+            // return new Array(legitArray);
+        });
+        console.log("Info received: " + drinkIngredients);
+        // let filteredArray = drinkIngredients.filter(function(el){
+        //     return el != null;
+        // });
+        // console.log("Post-filter: " + filteredArray);
+        let legitArray = [];
+        for(let i = 0; i < drinkIngredients.length; i++){
+            // console.log("Before return: " + drinkIngredients[i]);
+            legitArray.push(drinkIngredients[i]);
+            console.log(legitArray);
+        };
+        console.log("After arrangement set up: " + legitArray);
+        legitArray[0].forEach(function(item, i){
+            console.log("Item: " + item);
+            // $('#ingredientsList').append(`<li>${item}</li>`);
+            $(`<li class="itemLi">- ${item} -</li>`).appendTo("#ingredientsList");
+        });
+    });
 });
 
 $("#main-container").on('click', ".mainMenu", function(){

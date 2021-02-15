@@ -26,6 +26,21 @@ h1{
     flex-direction: column;
     margin: 0 auto;
 }
+.picOfDrink{
+    width: 95%;
+    margin: 10px auto;
+    display: block;
+}
+#ingredientsList{
+    margin: 10px auto;
+}
+.itemLi{
+    list-style: none;
+    /* display: block; */
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+}
 .PageButton{
     padding: 10px;
     background: whitesmoke;
