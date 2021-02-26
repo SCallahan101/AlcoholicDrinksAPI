@@ -1,6 +1,7 @@
 
 // API CONNECTIONS
 const filterSearchAPI = "https://www.thecocktaildb.com/api/json/v1/1/filter.php";
+const popularDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/search.php";
 const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 // Buttons Pathways
@@ -47,18 +48,30 @@ $('.nameB').click(function(){
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Search</p>
     <div class="buttonsContainer">
-        <button class="PageButton popularDrink">Margarita</button>
-        <button class="PageButton popularDrink">Mojito</button>
-        <button class="PageButton popularDrink">Cosmopolitan</button>
-        <button class="PageButton popularDrink">Moscow Mule</button>
-        <button class="PageButton popularDrink">Manhattan</button>
-        <button class="PageButton popularDrink">Old Fashioned</button>
+        <button class="PageButton popularDrink" value="Margarita">Margarita</button>
+        <button class="PageButton popularDrink" value="Mojito">Mojito</button>
+        <button class="PageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
+        <button class="PageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
+        <button class="PageButton popularDrink" value="Manhattan">Manhattan</button>
+        <button class="PageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
         <button class="PageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
 $("#main-container").on('click', ".popularDrink",function(){
     console.log('The popular drinks has been selected');
+    console.log("Value: " + $(this).attr("value"));
+    let name = $(this).attr("value");
+
+    let query = {
+        s: `${name}`
+    };
+    $.getJSON(popularDrinkAPI, query, function(data){
+        console.log("Received the drink data " + data.map(function(item){
+            console.log(item);
+        })
+        );
+    });
 });
 
 
