@@ -65,12 +65,20 @@ $("#main-container").on('click', ".popularDrink",function(){
 
     let query = {
         s: `${name}`
-    };
+    }
     $.getJSON(popularDrinkAPI, query, function(data){
-        console.log("Received the drink data " + data.map(function(item){
-            console.log(item);
-        })
-        );
+        console.log("Received the drink data " + JSON.stringify(data.drinks));
+        let drinkInfoPackage = data.drinks;
+        let thePackage = drinkInfoPackage.map(function(item){
+            let testItem = item.strDrink;
+            return testItem;
+        });
+        console.log("Testing: " + thePackage);
+        // data.map(function(item){
+        //     let infoPackage = item;
+        //     return infoPackage;
+        // });
+        // console.log("data showing: " + infoPackage);
     });
 });
 
