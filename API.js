@@ -28,13 +28,13 @@ $('.baseB').click(function(){
     <p class="">Select Your Choice of Search</p>
     <div class="basesContainer">
         <button class="alcoholBaseChoice" value="Bourbon"><img src="./Misc/Bourbon.jpg" class="alcoholBase"></button>
-        <img src="./Misc/Brandy.jpg" class="alcoholBase">
-        <img src="./Misc/Gin.jpg" class="alcoholBase">
-        <img src="./Misc/Rum.jpg" class="alcoholBase">
-        <img src="./Misc/Scotch.jpg" class="alcoholBase">
-        <img src="./Misc/Tequila.jpg" class="alcoholBase">
-        <img src="./Misc/Vodka.jpg" class="alcoholBase">
-        <img src="./Misc/Whiskey.jpg" class="alcoholBase">
+        <button class="alcoholBaseChoice" value="Brandy"><img src="./Misc/Brandy.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Gin"><img src="./Misc/Gin.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Rum"><img src="./Misc/Rum.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Scotch"><img src="./Misc/Scotch.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Tequila"><img src="./Misc/Tequila.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
         <button class="PageButton imgButton mainMenu">Back to Main Menu</button>
     </div>
    
@@ -50,29 +50,74 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
     }
     $.getJSON(filterSearchAPI, query, function(data){
         console.log("Received the drink data " + JSON.stringify(data.drinks));
-        let drinkInfoPackage = data.drinks;
-        let thePackage = drinkInfoPackage.map(function(item){
+        let listOfDrinks = data.drinks;
+        let drinksWithBase = listOfDrinks.map(function(item){
             let testItem = item.strDrink;
             return testItem;
         });
-        console.log("Testing: " + thePackage);
+        console.log("Testing: " + drinksWithBase);
+
+        // let listOfPotentials = [];
+        // for(let i = 0; i < drinksWithBase.length; i++){
+        //     // console.log("Before return: " + drinkIngredients[i]);
+        //     listOfPotentials.push(drinksWithBase[i]);
+        //     console.log(listOfPotentials);
+        // };
+        // console.log("After arrangement set up: " + listOfPotentials);
+        // listOfPotentials.forEach(function(name, i){
+        //     console.log("Name of Drink: " + name);
+        //     // $('#drinksList').append(`<li>${name}</li>`);
+        //     $(`<li class="nameDrinkLi">- ${name} -</li>`).appendTo("#drinksList");
+        // });
+
         // let choiceUrl = drinkInfoPackage.map(function(item){
         //     let testUrl = item.strDrinkThumb;
         //     return testUrl;
         // });
         // console.log("Pic URL Testing: " + choiceUrl[0]);
+
+        // <img class="picOfDrink" src="${"none"}">
         $("#main-container").html(`
         <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfRandomize">
-                <h3>"${"on hold"}"</h3>
-                <img class="picOfDrink" src="${"none"}">
-                <h3>Drink's Ingredient(s)</h3>
-                <ul id="ingredientsList"></ul>
+                <h3>The list of drinks with your choice of ${base}</h3>
+                <ul id="drinksList"></ul>
             </div>
             <button class="mainMenu">Main Menu</button>
         </div>
         `);
+    });
+});
+$("#main-container").on('click', ".alcoholBaseChoice",function(){
+    console.log('The alcohol base has been selected');
+    console.log("Base selected: " + $(this).attr("value"));
+    let base = $(this).attr("value");
+
+    let query = {
+        i: `${base}`
+    }
+    $.getJSON(filterSearchAPI, query, function(data){
+        // console.log("Received the drink data " + JSON.stringify(data.drinks));
+        let listOfDrinks = data.drinks;
+        let drinksWithBase = listOfDrinks.map(function(item){
+            let testItem = item.strDrink;
+            return testItem;
+        });
+        console.log("Testing: " + drinksWithBase);
+
+        let listOfPotentials = [];
+        for(let i = 0; i < drinksWithBase.length; i++){
+            // console.log("Before return: " + drinkIngredients[i]);
+            listOfPotentials.push(drinksWithBase[i]);
+            console.log(listOfPotentials);
+        };
+        console.log("After arrangement set up: " + listOfPotentials);
+        listOfPotentials.forEach(function(name, i){
+            console.log("Name of Drink: " + name);
+            // $('#drinksList').append(`<li>${name}</li>`);
+            $(`<li class="nameDrinkLi">- ${name} -</li>`).appendTo("#drinksList");
+        });
     });
 });
 
