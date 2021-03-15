@@ -65,6 +65,27 @@ h1{
 .alcoholBase{
     width: 100%;
 }
+#drinksList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+}
+.gridDivDrink{
+    height: 128px;
+    text-align: center;
+    border: 1px solid darkmagenta;
+}
+/* #listDirectionContainer{
+    display: block;
+    text-align: center;
+    margin: 10px 0px;
+}
+.listButton{
+    width: 80px;
+    padding: 5px;
+    margin: 2px 10px;
+} */
 .mainMenu{
     /* margin: 0 auto;
     display: block; */

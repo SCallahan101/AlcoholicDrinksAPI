@@ -82,7 +82,7 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
         <div class="buttonsContainer">
             <div id="resultOfRandomize">
                 <h3>The list of drinks with your choice of ${base}</h3>
-                <ul id="drinksList"></ul>
+                <div id="drinksList"></div>
             </div>
             <button class="mainMenu">Main Menu</button>
         </div>
@@ -104,8 +104,13 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
             let testItem = item.strDrink;
             return testItem;
         });
-        console.log("Testing: " + drinksWithBase);
-
+        //Testing out to get src info align with title
+        let drinksSrc = listOfDrinks.map(function(item){
+            let drinkSrc = item.strDrinkThumb;
+            return drinkSrc;
+        });
+        console.log("Testing: " + drinksSrc);
+        //
         let listOfPotentials = [];
         for(let i = 0; i < drinksWithBase.length; i++){
             // console.log("Before return: " + drinkIngredients[i]);
@@ -113,10 +118,12 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
             console.log(listOfPotentials);
         };
         console.log("After arrangement set up: " + listOfPotentials);
+        //
+      
         listOfPotentials.forEach(function(name, i){
             console.log("Name of Drink: " + name);
             // $('#drinksList').append(`<li>${name}</li>`);
-            $(`<li class="nameDrinkLi">- ${name} -</li>`).appendTo("#drinksList");
+            $(`<div class="gridDivDrink">${name}</div>`).appendTo("#drinksList");
         });
     });
 });
