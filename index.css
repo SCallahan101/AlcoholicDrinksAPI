@@ -33,6 +33,13 @@ h1{
     text-align: center;
     margin: 0 auto;
 }
+.ingredItem{
+    list-style: none;
+    /* display: block; */
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+}
 .picOfDrink{
     width: 95%;
     margin: 10px auto;
@@ -47,6 +54,9 @@ h1{
     width: 75%;
     text-align: center;
     margin: 0 auto;
+}
+#selectedDrinkIngredientsList{
+    margin: 10px auto;
 }
 .PageButton{
     padding: 10px;
@@ -72,9 +82,19 @@ h1{
     padding: 10px;
 }
 .gridDivDrink{
-    height: 128px;
+    /* height: 126px; */
+    /* width: 126px; */
     text-align: center;
     border: 1px solid darkmagenta;
+}
+.drinkImg{
+    width: 100%;
+}
+.drinkName{
+    /* position: relative; */
+    background: white;
+    /* bottom: 21px; */
+    font-size: 14px;
 }
 /* #listDirectionContainer{
     display: block;
@@ -87,6 +107,8 @@ h1{
     margin: 2px 10px;
 } */
 .mainMenu{
+    position: sticky;
+    bottom: 0px;
     /* margin: 0 auto;
     display: block; */
 }
