@@ -11,16 +11,75 @@ $('.ingredientB').click(function(){
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Search</p>
     <div class="buttonsContainer">
-        <button class="PageButton">Lemon</button>
-        <button class="PageButton">Sugar Syrup</button>
-        <button class="PageButton">Bitters</button>
-        <button class="PageButton">Liqueur</button>
-        <button class="PageButton">Grenadine</button>
-        <button class="PageButton">Club Soda</button>
+        <button class="PageButton ingredientBaseButton" value="lemon">Lemon</button>
+        <button class="PageButton ingredientBaseButton" value="sugar syrup">Sugar Syrup</button>
+        <button class="PageButton ingredientBaseButton" value="Bitters">Bitters</button>
+        <button class="PageButton ingredientBaseButton" value="liqueur">Liqueur</button>
+        <button class="PageButton ingredientBaseButton" value="grenadine">Grenadine</button>
+        <button class="PageButton ingredientBaseButton" value="club soda">Club Soda</button>
         <button class="PageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
+$("#main-container").on('click', ".ingredientBaseButton",function(){
+    console.log('The ingredient base has been selected');
+    console.log("Ingredient selected: " + $(this).attr("value"));
+    let drinkIngredient = $(this).attr("value");
+    console.log("Varible convert worked: " + drinkIngredient);
+
+    // let query = {
+    //     i: `${drinkIngredient}`
+    // }
+    // $.getJSON(filterSearchAPI, query, function(data){
+    //     console.log("Received the list with selected ingredient " + JSON.stringify(data.drinks));
+    //     let selectedIngredientDrinks = data.drinks;
+    //     let drinksWithingredient = selectedIngredientDrinks.map(function(drink){
+    //         let infoList = drink.strDrink;
+    //         return infoList;
+    //     });
+    //     console.log("Testing: " + drinksWithingredient + " all w/ " + drinkIngredient);
+        $("#main-container").html(`
+        <h3 class="">*Randomized Drink*</h3>
+        <div class="buttonsContainer">
+            <div id="resultOfSelectedIngredient">
+                <h3>The list of drinks with your ingredient choice: ${drinkIngredient}</h3>
+                <div id="listOfDrinksWSelectedIngredient"></div>
+            </div>
+            <button class="mainMenu">Main Menu</button>
+        </div>
+        `);
+});
+
+$("#main-container").on('click', ".ingredientBaseButton",function(){
+    console.log('The ingredient base has been selected');
+    console.log("Ingredient selected: " + $(this).attr("value"));
+    let drinkIngredient = $(this).attr("value");
+
+    let query = {
+        i: `${drinkIngredient}`
+    }
+    $.getJSON(filterSearchAPI, query, function(data){
+        console.log("Received the list with selected ingredient " + JSON.stringify(data.drinks));
+        let selectedIngredientDrinks = data.drinks;
+        let drinksWithingredient = selectedIngredientDrinks.map(function(drink){
+            let infoList = drink.strDrink;
+            return infoList;
+        });
+        console.log("Testing: " + drinksWithingredient + " all w/ " + drinkIngredient);
+        selectedIngredientDrinks.forEach(function(ingredientDrink, i){
+            console.log("Name of Drink: " + i + " " + ingredientDrink.strDrink);
+            let name = ingredientDrink.strDrink;
+            console.log("Name of Drink: " + ingredientDrink.strDrinkThumb);
+            let srcLink = ingredientDrink.strDrinkThumb;
+            $('#listOfDrinksWSelectedIngredient').append(`
+            <div class="gridDivDrink">
+                <img src="${srcLink}" class="drinkImg">
+                <p class="drinkName">${name}</p>
+            </div>`);
+        });
+    });
+});
+
 $('.baseB').click(function(){
     console.log("base button was clicked");
     $("#main-container").html(`
@@ -80,7 +139,7 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
         $("#main-container").html(`
         <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
-            <div id="resultOfRandomize">
+            <div id="resultOfSelectedBase">
                 <h3>The list of drinks with your choice of ${base}</h3>
                 <div id="drinksList"></div>
             </div>
@@ -223,7 +282,7 @@ $("#main-container").on('click', ".popularDrink",function(){
         $("#main-container").html(`
         <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
-            <div id="resultOfRandomize">
+            <div id="resultOfPopularDrink">
                 <h3>"${name}"</h3>
                 <img class="picOfDrink" src="${choiceUrl[0]}">
                 <h3>Drink's Ingredient(s)</h3>
