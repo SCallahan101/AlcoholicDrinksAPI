@@ -26,6 +26,14 @@ h1{
     flex-direction: column;
     margin: 0 auto;
 }
+#searchForm{
+    margin: 0 auto;
+}
+.searchSubmitButton{
+    width: 192px;
+    margin: 10px auto;
+    display: block;
+}
 .nameDrinkLi {
     list-style: none;
     /* display: block; */

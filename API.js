@@ -5,6 +5,47 @@ const popularDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/search.php"
 const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 // Buttons Pathways
+
+
+$('.searchEngine').click(function(){
+    console.log("search engine button was clicked");
+    $("#main-container").html(`
+    <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+    <p class="">Database of Cocktails</p>
+    <p>Search Away!</p>
+    <div class="buttonsContainer">
+        <form id="searchForm">
+            <label>Search</label>
+            <input type="text" value="" class="searchValue">
+            <br>
+            <input type="submit" value="submit" class="searchSubmitButton">
+        </form>
+        <button class="PageButton mainMenu">Back to Main Menu</button>
+    </div>
+    `);
+});
+
+$(document).on('submit', '#searchForm', function(e){
+    e.preventDefault();
+    let userInputValue = $('.searchValue').val();
+    console.log('Value: ' + userInputValue);
+
+    let query = {
+        i: `${userInputValue}`
+    }
+    $.getJSON(filterSearchAPI, query, function(inputData){
+        console.log("It works :)");
+        console.log("Received the list with selected ingredient " + JSON.stringify(inputData.drinks));
+        // let drinkData = inputData.drinks;
+        // let drinksWithingredient = drinkData.map(function(drink){
+        //     let infoList = drink.strDrink;
+        //     return infoList;
+        // });
+    });
+    
+});
+
+
 $('.ingredientB').click(function(){
     console.log("ingredient button was clicked");
     $("#main-container").html(`
