@@ -3,6 +3,7 @@
 const filterSearchAPI = "https://www.thecocktaildb.com/api/json/v1/1/filter.php";
 const popularDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/search.php";
 const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const selectedIdSearchAPI = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php";
 
 // Buttons Pathways
 
@@ -20,13 +21,22 @@ $('.searchEngine').click(function(){
             <br>
             <input type="submit" value="submit" class="searchSubmitButton">
         </form>
+        <div id="searchResultList"></div>
         <button class="PageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
 
+// $(document).on('submit', '#searchForm', function(e){
+//     e.preventDefault();
+//     $('#main-container').html(`
+//     <p>testing for proof of concept</p>
+//     `);
+// });
+
 $(document).on('submit', '#searchForm', function(e){
     e.preventDefault();
+    $('#searchResultList').html(``);
     let userInputValue = $('.searchValue').val();
     console.log('Value: ' + userInputValue);
 
@@ -36,15 +46,101 @@ $(document).on('submit', '#searchForm', function(e){
     $.getJSON(filterSearchAPI, query, function(inputData){
         console.log("It works :)");
         console.log("Received the list with selected ingredient " + JSON.stringify(inputData.drinks));
-        // let drinkData = inputData.drinks;
-        // let drinksWithingredient = drinkData.map(function(drink){
-        //     let infoList = drink.strDrink;
-        //     return infoList;
-        // });
+        let searchData = inputData.drinks;
+        searchData.forEach(function(drinkData, i){
+            console.log("Name of Drink: " + i + " " + drinkData.strDrink);
+            let name = drinkData.strDrink;
+            console.log("Name of Drink: " + drinkData.strDrinkThumb);
+            let srcLink = drinkData.strDrinkThumb;
+            console.log("Drink ID: " + drinkData.idDrink);
+            let drinkID = drinkData.idDrink;
+            $('#searchResultList').append(`
+            <div class="gridDivDrink">
+               <button class="drinkDataCube" value="${drinkID}">
+                    <p class="drinkName">${name}</p>
+                    <img src="${srcLink}" class="drinkImg">
+               </button>
+            </div>`);
+        });
+        // let selectedDrinkValue = $('.drinkDataCube').val();
+        // console.log('Value: ' + selectedDrinkValue);
+        $('.drinkDataCube').click(function(){
+            let selectedDrinkValue = $(this).val();
+            // e.preventDefault();
+            console.log('DataCube has been clicked! - ' + selectedDrinkValue);
+            infoOnSelectedDrink(selectedDrinkValue);
+            ingredientsInfoOnSelectedDrink(selectedDrinkValue);
+        });
     });
-    
 });
 
+function infoOnSelectedDrink(selectedData){
+    let query = {
+        i: `${selectedData}`
+    }
+    $.getJSON(selectedIdSearchAPI, query, function(outputData){
+        console.log("Retrieval data starting: ");
+        console.log("Received the list with selected ingredient " + JSON.stringify(outputData.drinks));
+        let searchData = outputData.drinks;
+        searchData.forEach(function(drinkData, i){
+            console.log("Name of Drink: " + i + " " + drinkData.strDrink);
+            let name = drinkData.strDrink;
+            console.log(name);
+            console.log("Name of Drink: " + drinkData.strDrinkThumb);
+            let srcLink = drinkData.strDrinkThumb;
+            $('#searchResultList').html(`
+                <p>${name}</p>
+                <img src="${srcLink}">
+                <p> ▼ Ingredients ▼ </p>
+                <ul id="ingredientsForUserSelectedDrink"></ul>
+            `);
+        });
+    });
+};
+
+function ingredientsInfoOnSelectedDrink(idData){
+    console.log("Testing Phase --- ");
+    let query = {
+        i: `${idData}`
+    }
+    $.getJSON(selectedIdSearchAPI, query, function(info){
+        console.log("Received the drink data " + JSON.stringify(info.drinks));
+        let drinkPackage = info.drinks;
+        let selectedDrinkIngredients = drinkPackage.map(function(data){
+            let ingredients = [
+                data.strIngredient1, 
+                data.strIngredient2, 
+                data.strIngredient3, 
+                data.strIngredient4, 
+                data.strIngredient5, 
+                data.strIngredient6, 
+                data.strIngredient7, 
+                data.strIngredient8, 
+                data.strIngredient9, 
+                data.strIngredient10
+            ];
+            // return ingredients;
+            console.log("Pre-filter: " + ingredients);
+            let filteredArray = ingredients.filter(function(el){
+                return el != null;
+            });
+            console.log("Post-filter with no Null(s): " + filteredArray);
+            return filteredArray;
+        });
+        console.log("Info received: " + selectedDrinkIngredients);
+        let legitArray = [];
+        for(let i = 0; i < selectedDrinkIngredients.length; i++){
+            legitArray.push(selectedDrinkIngredients[i]);
+            console.log(legitArray);
+        };
+        console.log("After arrangement set up: " + legitArray);
+        legitArray[0].forEach(function(item, i){
+            console.log("Item: " + item);
+            // $('#selectedDrinkIngredientsList').append(`<li class="ingredItem">- ${item} -</li>`);
+            $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingredientsForUserSelectedDrink");
+        });
+    });
+};
 
 $('.ingredientB').click(function(){
     console.log("ingredient button was clicked");
