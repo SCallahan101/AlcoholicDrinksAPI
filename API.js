@@ -11,17 +11,17 @@ const selectedIdSearchAPI = "https://www.thecocktaildb.com/api/json/v1/1/lookup.
 $('.searchEngine').click(function(){
     console.log("search engine button was clicked");
     $("#main-container").html(`
-    <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+    <h3 class="">Search for your MUST have ingredient in your Drinks</h3>
     <p class="">Database of Cocktails</p>
-    <p>Search Away!</p>
     <div class="buttonsContainer">
         <form id="searchForm">
-            <label>Search</label>
-            <input type="text" value="" class="searchValue">
+            <input type="text" value="" placeholder="Search..." class="searchValue">
             <br>
-            <input type="submit" value="submit" class="searchSubmitButton">
+            <input type="submit" value="Search Away!" class="searchSubmitButton">
         </form>
-        <div id="searchResultList"></div>
+        <div id="searchResultList">
+            <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+        </div>
         <button class="PageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
@@ -57,8 +57,8 @@ $(document).on('submit', '#searchForm', function(e){
             $('#searchResultList').append(`
             <div class="gridDivDrink">
                <button class="drinkDataCube" value="${drinkID}">
-                    <p class="drinkName">${name}</p>
                     <img src="${srcLink}" class="drinkImg">
+                    <p class="drinkName">${name}</p>
                </button>
             </div>`);
         });
@@ -90,7 +90,7 @@ function infoOnSelectedDrink(selectedData){
             let srcLink = drinkData.strDrinkThumb;
             $('#searchResultList').html(`
                 <p>${name}</p>
-                <img src="${srcLink}">
+                <img class="selectedDrinkImg" src="${srcLink}">
                 <p> ▼ Ingredients ▼ </p>
                 <ul id="ingredientsForUserSelectedDrink"></ul>
             `);
@@ -146,7 +146,7 @@ $('.ingredientB').click(function(){
     console.log("ingredient button was clicked");
     $("#main-container").html(`
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    <p class="">Select Your Choice of Search</p>
+    <p class="">Select Your Choice of Ingredient</p>
     <div class="buttonsContainer">
         <button class="PageButton ingredientBaseButton" value="lemon">Lemon</button>
         <button class="PageButton ingredientBaseButton" value="sugar syrup">Sugar Syrup</button>
@@ -479,7 +479,9 @@ $("#main-container").on('click', ".popularDrink",function(){
 
 
 //Randomize Button
-$('.randomB').click(function(){
+
+
+function randomizeTheDrinkPartOne(){
     console.log("randomize button was clicked");
     $.getJSON(randomDrinkAPI, function(data){
         console.log(data.drinks);
@@ -509,12 +511,11 @@ $('.randomB').click(function(){
                 <h3>Drink's Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
             </div>
+            <button class="randomAgain">Again</button>
             <button class="mainMenu">Main Menu</button>
         </div>
         `);
-    })
-});
-$('.randomB').click(function(){
+    });
     console.log("randomize button was clicked");
     $.getJSON(randomDrinkAPI, function(data){
         console.log(data.drinks);
@@ -568,8 +569,110 @@ $('.randomB').click(function(){
             $(`<li class="itemLi">- ${item} -</li>`).appendTo("#ingredientsList");
         });
     });
-});
+};
 
+$('.randomB').click(function(){
+    randomizeTheDrinkPartOne();
+    // console.log("randomize button was clicked");
+    // $.getJSON(randomDrinkAPI, function(data){
+    //     console.log(data.drinks);
+    //     let drinkResult = data.drinks;
+
+    //     //Getting drink name
+    //     let drinkName = drinkResult.map(function(info){
+    //         let name = info.strDrink;
+    //         return name;
+    //     });
+    //     console.log("Name of drink: " + drinkName);
+
+    //     //Retrieve url of drink
+    //     let drinkPic = drinkResult.map(function(data){
+    //         let img = data.strDrinkThumb;
+    //         return img;
+    //     });
+    //     console.log("Link for the drink: " + drinkPic);
+
+    //     //given DOM changes from data results
+    //     $("#main-container").html(`
+    //     <h3 class="">*Randomized Drink*</h3>
+    //     <div class="buttonsContainer">
+    //         <div id="resultOfRandomize">
+    //             <h3>"${drinkName}"</h3>
+    //             <img class="picOfDrink" src="${drinkPic}">
+    //             <h3>Drink's Ingredient(s)</h3>
+    //             <ul id="ingredientsList"></ul>
+    //         </div>
+    //         <button class="randomAgain">Again</button>
+    //         <button class="mainMenu">Main Menu</button>
+    //     </div>
+    //     `);
+    // })
+});
+$('.randomB').click(function(){
+    // console.log("randomize button was clicked");
+    // $.getJSON(randomDrinkAPI, function(data){
+    //     console.log(data.drinks);
+    //     let drinkResult = data.drinks;
+    //     //Get Drink Ingredients
+    //     let drinkIngredients = drinkResult.map(function(data){
+    //         let ingredients = [
+    //             data.strIngredient1, 
+    //             data.strIngredient2, 
+    //             data.strIngredient3, 
+    //             data.strIngredient4, 
+    //             data.strIngredient5, 
+    //             data.strIngredient6, 
+    //             data.strIngredient7, 
+    //             data.strIngredient8, 
+    //             data.strIngredient9, 
+    //             data.strIngredient10
+    //         ];
+    //         // return ingredients;
+    //         console.log("Pre-filter: " + ingredients);
+    //         let filteredArray = ingredients.filter(function(el){
+    //             return el != null;
+    //         });
+    //         console.log("Post-filter with no Null(s): " + filteredArray);
+    //         return filteredArray;
+    //         // console.log("Post-filter: " + filteredArray);
+    //         // let legitArray = [];
+    //         // for(let i = 0; i < filteredArray.length; i++){
+    //         //     // console.log("Before return: " + filteredArray[i]);
+    //         //     legitArray.push(filteredArray[i]);
+    //         //     console.log(legitArray);
+    //         // };
+
+    //         // return new Array(legitArray);
+    //     });
+    //     console.log("Info received: " + drinkIngredients);
+    //     // let filteredArray = drinkIngredients.filter(function(el){
+    //     //     return el != null;
+    //     // });
+    //     // console.log("Post-filter: " + filteredArray);
+    //     let legitArray = [];
+    //     for(let i = 0; i < drinkIngredients.length; i++){
+    //         // console.log("Before return: " + drinkIngredients[i]);
+    //         legitArray.push(drinkIngredients[i]);
+    //         console.log(legitArray);
+    //     };
+    //     console.log("After arrangement set up: " + legitArray);
+    //     legitArray[0].forEach(function(item, i){
+    //         console.log("Item: " + item);
+    //         // $('#ingredientsList').append(`<li>${item}</li>`);
+    //         $(`<li class="itemLi">- ${item} -</li>`).appendTo("#ingredientsList");
+    //     });
+    // });
+});
+// };
+
+// randomizeTheDrink();
+
+$('#main-container').on('click','.randomAgain', function(){
+    randomizeTheDrinkPartOne();
+
+    console.log('it works');
+    
+});
 //Go back to Main Page
 $("#main-container").on('click', ".mainMenu", function(){
     console.log("The main menu button was clicked");
