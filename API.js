@@ -22,7 +22,7 @@ $('.searchEngine').click(function(){
         <div id="searchResultList">
             <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
         </div>
-        <button class="PageButton mainMenu">Back to Main Menu</button>
+        <button class="pageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
@@ -55,12 +55,12 @@ $(document).on('submit', '#searchForm', function(e){
             console.log("Drink ID: " + drinkData.idDrink);
             let drinkID = drinkData.idDrink;
             $('#searchResultList').append(`
-            <div class="gridDivDrink">
+           
                <button class="drinkDataCube" value="${drinkID}">
                     <img src="${srcLink}" class="drinkImg">
-                    <p class="drinkName">${name}</p>
+                    <div class="drinkName">${name}</div>
                </button>
-            </div>`);
+            `);
         });
         // let selectedDrinkValue = $('.drinkDataCube').val();
         // console.log('Value: ' + selectedDrinkValue);
@@ -148,13 +148,13 @@ $('.ingredientB').click(function(){
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Ingredient</p>
     <div class="buttonsContainer">
-        <button class="PageButton ingredientBaseButton" value="lemon">Lemon</button>
-        <button class="PageButton ingredientBaseButton" value="sugar syrup">Sugar Syrup</button>
-        <button class="PageButton ingredientBaseButton" value="Bitters">Bitters</button>
-        <button class="PageButton ingredientBaseButton" value="liqueur">Liqueur</button>
-        <button class="PageButton ingredientBaseButton" value="grenadine">Grenadine</button>
-        <button class="PageButton ingredientBaseButton" value="club soda">Club Soda</button>
-        <button class="PageButton mainMenu">Back to Main Menu</button>
+        <button class="pageButton ingredientBaseButton" value="lemon">Lemon</button>
+        <button class="pageButton ingredientBaseButton" value="sugar syrup">Sugar Syrup</button>
+        <button class="pageButton ingredientBaseButton" value="Bitters">Bitters</button>
+        <button class="pageButton ingredientBaseButton" value="liqueur">Liqueur</button>
+        <button class="pageButton ingredientBaseButton" value="grenadine">Grenadine</button>
+        <button class="pageButton ingredientBaseButton" value="club soda">Club Soda</button>
+        <button class="pageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
@@ -231,7 +231,7 @@ $('.baseB').click(function(){
         <button class="alcoholBaseChoice" value="Tequila"><img src="./Misc/Tequila.jpg" class="alcoholBase"></button>
         <button class="alcoholBaseChoice" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
         <button class="alcoholBaseChoice" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
-        <button class="PageButton imgButton mainMenu">Back to Main Menu</button>
+        <button class="pageButton imgButton mainMenu">Back to Main Menu</button>
     </div>
    
     `);
@@ -338,13 +338,13 @@ $('.nameB').click(function(){
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Search</p>
     <div class="buttonsContainer">
-        <button class="PageButton popularDrink" value="Margarita">Margarita</button>
-        <button class="PageButton popularDrink" value="Mojito">Mojito</button>
-        <button class="PageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
-        <button class="PageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
-        <button class="PageButton popularDrink" value="Manhattan">Manhattan</button>
-        <button class="PageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
-        <button class="PageButton mainMenu">Back to Main Menu</button>
+        <button class="pageButton popularDrink" value="Margarita">Margarita</button>
+        <button class="pageButton popularDrink" value="Mojito">Mojito</button>
+        <button class="pageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
+        <button class="pageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
+        <button class="pageButton popularDrink" value="Manhattan">Manhattan</button>
+        <button class="pageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
+        <button class="pageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
 });
