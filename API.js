@@ -148,12 +148,12 @@ $('.ingredientB').click(function(){
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
     <p class="">Select Your Choice of Ingredient</p>
     <div class="buttonsContainer">
-        <button class="pageButton ingredientBaseButton" value="lemon">Lemon</button>
-        <button class="pageButton ingredientBaseButton" value="sugar syrup">Sugar Syrup</button>
+        <button class="pageButton ingredientBaseButton" value="Lemon">Lemon</button>
+        <button class="pageButton ingredientBaseButton" value="Sugar syrup">Sugar Syrup</button>
         <button class="pageButton ingredientBaseButton" value="Bitters">Bitters</button>
-        <button class="pageButton ingredientBaseButton" value="liqueur">Liqueur</button>
-        <button class="pageButton ingredientBaseButton" value="grenadine">Grenadine</button>
-        <button class="pageButton ingredientBaseButton" value="club soda">Club Soda</button>
+        <button class="pageButton ingredientBaseButton" value="Cranberry juice">Cranberry juice</button>
+        <button class="pageButton ingredientBaseButton" value="Grenadine">Grenadine</button>
+        <button class="pageButton ingredientBaseButton" value="Club soda">Club Soda</button>
         <button class="pageButton mainMenu">Back to Main Menu</button>
     </div>
     `);
@@ -180,7 +180,7 @@ $("#main-container").on('click', ".ingredientBaseButton",function(){
         <div class="buttonsContainer">
             <div id="resultOfSelectedIngredient">
                 <h3>The list of drinks with your ingredient choice: ${drinkIngredient}</h3>
-                <div id="listOfDrinksWSelectedIngredient"></div>
+                <div id="listOfDrinksSelectedIngredient"></div>
             </div>
             <button class="mainMenu">Main Menu</button>
         </div>
@@ -208,7 +208,7 @@ $("#main-container").on('click', ".ingredientBaseButton",function(){
             let name = ingredientDrink.strDrink;
             console.log("Name of Drink: " + ingredientDrink.strDrinkThumb);
             let srcLink = ingredientDrink.strDrinkThumb;
-            $('#listOfDrinksWSelectedIngredient').append(`
+            $('#listOfDrinksSelectedIngredient').append(`
             <div class="gridDivDrink">
                 <img src="${srcLink}" class="drinkImg">
                 <p class="drinkName">${name}</p>
@@ -511,7 +511,7 @@ function randomizeTheDrinkPartOne(){
                 <h3>Drink's Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
             </div>
-            <button class="randomAgain">Again</button>
+            <button class="randomAgain">Randomize Again</button>
             <button class="mainMenu">Main Menu</button>
         </div>
         `);
