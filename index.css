@@ -329,6 +329,9 @@ border: solid; */
     #searchResultList{
         grid-template-columns: 1fr 1fr 1fr;
     }
+    .picOfDrink {
+        width: 45%;
+    }
 }
 @media only screen and (min-width: 1024px){
     #listOfDrinksSelectedIngredient{
