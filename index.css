@@ -24,11 +24,12 @@ h1{
 }
 #main-container h3{
     text-align: center;
-    padding: 5px 0px;
+    padding: 5px;
 }
 #main-container p{
     text-align: center;
     margin: 0px 0px;
+    padding: 5px 30px 10px;
 }
 .introMessage{
     text-align: center;
@@ -148,9 +149,12 @@ h1{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 5px;
 }
 .alcoholBase{
     width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 #drinksList{
     display: grid;
@@ -171,6 +175,9 @@ h1{
     text-align: center;
     border: 1px solid darkmagenta;
     position: relative;
+}
+.alcoholBaseChoice{
+    border: none;
 }
 .drinkImg{
     width: 100%;
@@ -215,7 +222,7 @@ h1{
     background: none;
     color: black;
     /* display: inline-block; */
-    padding: 10px 3px 5px 10px;
+    padding: 10px 3px 5px 10px !important;
     /* bottom: 21px; */
     font-size: 14px;
     -webkit-transform: skew(-9deg);
@@ -269,13 +276,20 @@ border: solid; */
     grid-column-start: 1;
     grid-column-end: 3;
 }
-
+#searchResultList{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#cancelGrid{
+    /* display: unset; */
+    grid-column-start: 2;
+    grid-column-end: 3;
+    /* margin: 0 auto; */
+}
 @media only screen and (min-width: 320px){
     #main-container{
 
     }
-
-
 }
 @media only screen and (min-width: 425px){
     #listOfDrinksSelectedIngredient{
@@ -297,6 +311,24 @@ border: solid; */
     .pageButton{
         width: 60%;
     }
+    .basesContainer{
+        /* display: grid; */
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .imgButton{
+        grid-column-end: 4;
+    }
+    .vodka{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .whiskey{
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+    #searchResultList{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 @media only screen and (min-width: 1024px){
     #listOfDrinksSelectedIngredient{
@@ -307,6 +339,21 @@ border: solid; */
     }
     .pageButton{
         width: 45%;
+    }
+    .basesContainer{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: unset;
+    }
+    .vodka{
+        grid-column-start: unset;
+        grid-column-end: unset;
+    }
+    .whiskey{
+        grid-column-start: unset;
+        grid-column-end: unset;
+    }
+    .imgButton {
+        grid-column-end: 5;
     }
 }
 

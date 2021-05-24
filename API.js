@@ -19,8 +19,8 @@ $('.searchEngine').click(function(){
             <br>
             <input type="submit" value="Search Away!" class="searchSubmitButton">
         </form>
-        <div id="searchResultList">
-            <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+        <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+        <div id="searchResultList">    
         </div>
         <button class="pageButton mainMenu">Back to Main Menu</button>
     </div>
@@ -55,7 +55,6 @@ $(document).on('submit', '#searchForm', function(e){
             console.log("Drink ID: " + drinkData.idDrink);
             let drinkID = drinkData.idDrink;
             $('#searchResultList').append(`
-           
                <button class="drinkDataCube" value="${drinkID}">
                     <img src="${srcLink}" class="drinkImg">
                     <div class="drinkName">${name}</div>
@@ -89,10 +88,12 @@ function infoOnSelectedDrink(selectedData){
             console.log("Name of Drink: " + drinkData.strDrinkThumb);
             let srcLink = drinkData.strDrinkThumb;
             $('#searchResultList').html(`
-                <p>${name}</p>
-                <img class="selectedDrinkImg" src="${srcLink}">
-                <p> ▼ Ingredients ▼ </p>
-                <ul id="ingredientsForUserSelectedDrink"></ul>
+                <div id="cancelGrid">
+                    <p>${name}</p>
+                    <img class="selectedDrinkImg" src="${srcLink}">
+                    <p> ▼ Ingredients ▼ </p>
+                    <ul id="ingredientsForUserSelectedDrink"></ul>
+                </div>
             `);
         });
     });
@@ -221,7 +222,7 @@ $('.baseB').click(function(){
     console.log("base button was clicked");
     $("#main-container").html(`
     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    <p class="">Select Your Choice of Search</p>
+    <p class="">Select Your Main Liquor for Drinks</p>
     <div class="basesContainer">
         <button class="alcoholBaseChoice" value="Bourbon"><img src="./Misc/Bourbon.jpg" class="alcoholBase"></button>
         <button class="alcoholBaseChoice" value="Brandy"><img src="./Misc/Brandy.jpg" class="alcoholBase"></button>
@@ -229,11 +230,10 @@ $('.baseB').click(function(){
         <button class="alcoholBaseChoice" value="Rum"><img src="./Misc/Rum.jpg" class="alcoholBase"></button>
         <button class="alcoholBaseChoice" value="Scotch"><img src="./Misc/Scotch.jpg" class="alcoholBase"></button>
         <button class="alcoholBaseChoice" value="Tequila"><img src="./Misc/Tequila.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice vodka" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
+        <button class="alcoholBaseChoice whiskey" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
         <button class="pageButton imgButton mainMenu">Back to Main Menu</button>
     </div>
-   
     `);
 });
 $("#main-container").on('click', ".alcoholBaseChoice",function(){
