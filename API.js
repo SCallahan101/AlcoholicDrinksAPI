@@ -6,26 +6,40 @@ const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 const selectedIdSearchAPI = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php";
 
 // Buttons Pathways
+function goBack(){
+    console.log("Previous Button clicked");
+    window.history.back();
+}
 
 
-$('.searchEngine').click(function(){
-    console.log("search engine button was clicked");
-    $("#main-container").html(`
-    <h3 class="">Search for your MUST have ingredient in your Drinks</h3>
-    <p class="">Database of Cocktails</p>
-    <div class="buttonsContainer">
-        <form id="searchForm">
-            <input type="text" value="" placeholder="Search..." class="searchValue">
-            <br>
-            <input type="submit" value="Search Away!" class="searchSubmitButton">
-        </form>
-        <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
-        <div id="searchResultList">    
-        </div>
-        <button class="pageButton mainMenu">Back to Main Menu</button>
-    </div>
-    `);
-});
+// $('.searchEngine').click(function(){
+//     console.log("search engine button was clicked");
+//     $("#main-container").html(`
+//     <h3 class="">Search for your "MUST have" ingredient in your Drinks</h3>
+//     <p class="">Database of Cocktails</p>
+//     <div class="buttonsContainer">
+//         <form id="searchForm">
+//             <input type="text" value="" placeholder="Search..." class="searchValue">
+//             <br>
+//             <input type="submit" value="Search Drinks!" class="searchSubmitButton">
+//         </form>
+//         <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+//         <p>OR</p>
+//         <form id="nameSearchForm">
+//             <input type="text" value="" placeholder="Search..." class="nameSearchValue">
+//             <br>
+//             <input type="submit" value="Search Name!" class="nameSearchSubmitButton">
+//         </form>
+//         <div id="searchResultList">    
+//         </div>
+//         <div id="pathwayBox">
+//             <button class="pageButton previous"><img src="./Misc/arrow-circle-left-solid.svg"></button>
+//             <button class="pageButton mainMenu">Back to Main Menu</button>
+//             <button class="pageButton forward"><img src="./Misc/arrow-circle-right-solid.svg"></button>
+//         </div>
+//     </div>
+//     `);
+// });
 
 // $(document).on('submit', '#searchForm', function(e){
 //     e.preventDefault();
@@ -89,8 +103,8 @@ function infoOnSelectedDrink(selectedData){
             let srcLink = drinkData.strDrinkThumb;
             $('#searchResultList').html(`
                 <div id="cancelGrid">
-                    <p>${name}</p>
                     <img class="selectedDrinkImg" src="${srcLink}">
+                    <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingredientsForUserSelectedDrink"></ul>
                 </div>
@@ -143,22 +157,26 @@ function ingredientsInfoOnSelectedDrink(idData){
     });
 };
 
-$('.ingredientB').click(function(){
-    console.log("ingredient button was clicked");
-    $("#main-container").html(`
-    <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    <p class="">Select Your Choice of Ingredient</p>
-    <div class="buttonsContainer">
-        <button class="pageButton ingredientBaseButton" value="Lemon">Lemon</button>
-        <button class="pageButton ingredientBaseButton" value="Sugar syrup">Sugar Syrup</button>
-        <button class="pageButton ingredientBaseButton" value="Bitters">Bitters</button>
-        <button class="pageButton ingredientBaseButton" value="Cranberry juice">Cranberry juice</button>
-        <button class="pageButton ingredientBaseButton" value="Grenadine">Grenadine</button>
-        <button class="pageButton ingredientBaseButton" value="Club soda">Club Soda</button>
-        <button class="pageButton mainMenu">Back to Main Menu</button>
-    </div>
-    `);
-});
+// $('.ingredientB').click(function(){
+//     console.log("ingredient button was clicked");
+//     $("#main-container").html(`
+//     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+//     <p class="">Select Your Choice of Ingredient</p>
+//     <div class="buttonsContainer">
+//         <button class="pageButton ingredientBaseButton" value="Lemon">Lemon</button>
+//         <button class="pageButton ingredientBaseButton" value="Sugar syrup">Sugar Syrup</button>
+//         <button class="pageButton ingredientBaseButton" value="Bitters">Bitters</button>
+//         <button class="pageButton ingredientBaseButton" value="Cranberry juice">Cranberry juice</button>
+//         <button class="pageButton ingredientBaseButton" value="Grenadine">Grenadine</button>
+//         <button class="pageButton ingredientBaseButton" value="Club soda">Club Soda</button>
+//         <div id="pathwayBox">
+//             <button class="pageButton previous"><img src="./Misc/arrow-circle-left-solid.svg"></button>
+//             <button class="pageButton mainMenu">Back to Main Menu</button>
+//             <button class="pageButton forward"><img src="./Misc/arrow-circle-right-solid.svg"></button>
+//         </div>
+//     </div>
+//     `);
+// });
 $("#main-container").on('click', ".ingredientBaseButton",function(){
     console.log('The ingredient base has been selected');
     console.log("Ingredient selected: " + $(this).attr("value"));
@@ -177,13 +195,16 @@ $("#main-container").on('click', ".ingredientBaseButton",function(){
     //     });
     //     console.log("Testing: " + drinksWithingredient + " all w/ " + drinkIngredient);
         $("#main-container").html(`
-        <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfSelectedIngredient">
                 <h3>The list of drinks with your ingredient choice: ${drinkIngredient}</h3>
                 <div id="listOfDrinksSelectedIngredient"></div>
             </div>
-            <button class="mainMenu">Main Menu</button>
+            <div id="pathwayBox">
+                <button class="pageButton previous" onclick="goBackIngredientPage()"><img src="../Misc/arrow-circle-left-solid.svg"></button>
+                <button class="pageButton mainMenu">Back to Main Menu</button>
+                <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+            </div>
         </div>
         `);
 });
@@ -217,25 +238,33 @@ $("#main-container").on('click', ".ingredientBaseButton",function(){
         });
     });
 });
+function goBackIngredientPage(){
+    console.log("back to ingredient page clicked");
+    location.assign("../Pages/ingredientsDrink.html");
+}
 
-$('.baseB').click(function(){
-    console.log("base button was clicked");
-    $("#main-container").html(`
-    <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    <p class="">Select Your Main Liquor for Drinks</p>
-    <div class="basesContainer">
-        <button class="alcoholBaseChoice" value="Bourbon"><img src="./Misc/Bourbon.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Brandy"><img src="./Misc/Brandy.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Gin"><img src="./Misc/Gin.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Rum"><img src="./Misc/Rum.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Scotch"><img src="./Misc/Scotch.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice" value="Tequila"><img src="./Misc/Tequila.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice vodka" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
-        <button class="alcoholBaseChoice whiskey" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
-        <button class="pageButton imgButton mainMenu">Back to Main Menu</button>
-    </div>
-    `);
-});
+// $('.baseB').click(function(){
+//     console.log("base button was clicked");
+//     $("#main-container").html(`
+//     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+//     <p class="">Select Your Main Liquor for Drinks</p>
+//     <div class="basesContainer">
+//         <button class="alcoholBaseChoice" value="Bourbon"><img src="./Misc/Bourbon.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice" value="Brandy"><img src="./Misc/Brandy.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice" value="Gin"><img src="./Misc/Gin.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice" value="Rum"><img src="./Misc/Rum.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice" value="Scotch"><img src="./Misc/Scotch.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice" value="Tequila"><img src="./Misc/Tequila.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice vodka" value="Vodka"><img src="./Misc/Vodka.jpg" class="alcoholBase"></button>
+//         <button class="alcoholBaseChoice whiskey" value="Whiskey"><img src="./Misc/Whiskey.jpg" class="alcoholBase"></button>
+//         <div id="pathwayBox">
+//             <button class="pageButton previous"><img src="./Misc/arrow-circle-left-solid.svg"></button>
+//             <button class="pageButton mainMenu">Back to Main Menu</button>
+//             <button class="pageButton forward"><img src="./Misc/arrow-circle-right-solid.svg"></button>
+//         </div>
+//     </div>
+//     `);
+// });
 $("#main-container").on('click', ".alcoholBaseChoice",function(){
     console.log('The alcohol base has been selected');
     console.log("Base selected: " + $(this).attr("value"));
@@ -274,13 +303,16 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
 
         // <img class="picOfDrink" src="${"none"}">
         $("#main-container").html(`
-        <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfSelectedBase">
-                <h3>The list of drinks with your choice of ${base}</h3>
+                <h3>The list of drinks with your choice of spirit: ${base}</h3>
                 <div id="drinksList"></div>
             </div>
-            <button class="mainMenu">Main Menu</button>
+            <div id="pathwayBox">
+                <button class="pageButton previous"><img src="../Misc/arrow-circle-left-solid.svg"></button>
+                <button class="mainMenu">Back to Main Menu</button>
+                <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+            </div>
         </div>
         `);
     });
@@ -332,22 +364,26 @@ $("#main-container").on('click', ".alcoholBaseChoice",function(){
 });
 
 //Button to get Popular drinks Ingredients
-$('.nameB').click(function(){
-    console.log("name button was clicked");
-    $("#main-container").html(`
-    <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
-    <p class="">Select Your Choice of Search</p>
-    <div class="buttonsContainer">
-        <button class="pageButton popularDrink" value="Margarita">Margarita</button>
-        <button class="pageButton popularDrink" value="Mojito">Mojito</button>
-        <button class="pageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
-        <button class="pageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
-        <button class="pageButton popularDrink" value="Manhattan">Manhattan</button>
-        <button class="pageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
-        <button class="pageButton mainMenu">Back to Main Menu</button>
-    </div>
-    `);
-});
+// $('.nameB').click(function(){
+//     console.log("name button was clicked");
+//     $("#main-container").html(`
+//     <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+//     <p class="">Select Your Choice of Search</p>
+//     <div class="buttonsContainer">
+//         <button class="pageButton popularDrink" value="Margarita">Margarita</button>
+//         <button class="pageButton popularDrink" value="Mojito">Mojito</button>
+//         <button class="pageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
+//         <button class="pageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
+//         <button class="pageButton popularDrink" value="Manhattan">Manhattan</button>
+//         <button class="pageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
+//         <div id="pathwayBox">
+//             <button class="pageButton previous"><img src="./Misc/arrow-circle-left-solid.svg"></button>
+//             <button class="pageButton mainMenu">Back to Main Menu</button>
+//             <button class="pageButton forward"><img src="./Misc/arrow-circle-right-solid.svg"></button>
+//         </div>
+//     </div>
+//     `);
+// });
 $("#main-container").on('click', ".popularDrink",function(){
     console.log('The popular drinks has been selected');
     console.log("Value: " + $(this).attr("value"));
@@ -417,7 +453,6 @@ $("#main-container").on('click', ".popularDrink",function(){
             $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#selectedDrinkIngredientsList");
         });
         $("#main-container").html(`
-        <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfPopularDrink">
                 <h3>"${name}"</h3>
@@ -503,16 +538,19 @@ function randomizeTheDrinkPartOne(){
 
         //given DOM changes from data results
         $("#main-container").html(`
-        <h3 class="">*Randomized Drink*</h3>
         <div class="buttonsContainer">
             <div id="resultOfRandomize">
-                <h3>"${drinkName}"</h3>
+                <h3>Result: "${drinkName}"</h3>
                 <img class="picOfDrink" src="${drinkPic}">
                 <h3>Drink's Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
             </div>
             <button class="randomAgain">Randomize Again</button>
-            <button class="mainMenu">Main Menu</button>
+            <div id="pathwayBox">
+                <button class="pageButton previous"><img src="../Misc/arrow-circle-left-solid.svg"></button>
+                <button class="mainMenu">Back to Main Menu</button>
+                <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+            </div>
         </div>
         `);
     });
@@ -677,5 +715,5 @@ $('#main-container').on('click','.randomAgain', function(){
 $("#main-container").on('click', ".mainMenu", function(){
     console.log("The main menu button was clicked");
     localStorage.clear();
-    location.reload();
+    location.assign("../index.html");
 });

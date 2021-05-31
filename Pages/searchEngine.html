@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../index.css">
+    </head>
+    <body>
+        <h1 id="appTitle">WHAT'S YOUR
+            <br>POISON???
+        </h1>
+        <div id="main-container">
+            <h3 class="">Search for your "MUST have" ingredient in your Drinks</h3>
+            <p class="">Database of Cocktails</p>
+            <div class="buttonsContainer">
+                <form id="searchForm">
+                    <input type="text" value="" placeholder="Search..." class="searchValue">
+                    <br>
+                    <input type="submit" value="Search Drinks!" class="searchSubmitButton">
+                </form>
+                <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+                <p>OR</p>
+                <form id="nameSearchForm">
+                    <input type="text" value="" placeholder="Search..." class="nameSearchValue">
+                    <br>
+                    <input type="submit" value="Search Name!" class="nameSearchSubmitButton">
+                </form>
+                <div id="searchResultList">    
+                </div>
+                <div id="pathwayBox">
+                    <button class="pageButton previous" onclick="goBack()"><img src="../Misc/arrow-circle-left-solid.svg"></button>
+                    <button class="pageButton mainMenu">Back to Main Menu</button>
+                    <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+                </div>
+            </div>
+        </div>
+        <script src="../API.js" async defer></script>
+    </body>
+</html>

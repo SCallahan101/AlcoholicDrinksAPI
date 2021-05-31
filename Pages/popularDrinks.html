@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../index.css">
+    </head>
+    <body>
+        <h1 id="appTitle">WHAT'S YOUR
+            <br>POISON???
+        </h1>
+        <div id="main-container">
+            <h3 class="">Popular Ingredients for Drinks/Cocktails</h3>
+            <p class="">Select Your Choice of Search</p>
+            <div class="buttonsContainer">
+                <button class="pageButton popularDrink" value="Margarita">Margarita</button>
+                <button class="pageButton popularDrink" value="Mojito">Mojito</button>
+                <button class="pageButton popularDrink" value="Cosmopolitan">Cosmopolitan</button>
+                <button class="pageButton popularDrink" value="Moscow Mule">Moscow Mule</button>
+                <button class="pageButton popularDrink" value="Manhattan">Manhattan</button>
+                <button class="pageButton popularDrink" value="Old Fashioned">Old Fashioned</button>
+                <div id="pathwayBox">
+                    <button class="pageButton previous" onclick="goBack()"><img src="../Misc/arrow-circle-left-solid.svg"></button>
+                    <button class="pageButton mainMenu">Back to Main Menu</button>
+                    <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+                </div>
+            </div>
+        </div>
+        <script src="../API.js" async defer></script>
+    </body>
+</html>
