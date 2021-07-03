@@ -40,6 +40,32 @@ h1{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    position: relative;
+}
+#goTopButton{
+    cursor: pointer;
+    background: linear-gradient(54.7deg, #960ead 12%,#0ad8c7 100%);
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    /* right: 40px; */
+    bottom: 0px;
+}
+#upArrowImg{
+    background: linear-gradient( 
+54.7deg
+ , #960ead 12%,#0ad8c7 100%);
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    left: 50%;
+    margin-left: -18px;
+    padding: 0px;
+    border-radius: 5px;
 }
 #searchForm, #nameSearchForm{
     margin: 0 auto;
@@ -127,6 +153,9 @@ h1{
     width: 80%;
     letter-spacing: 1px;
 }
+.searchPage{
+    width: 35% !important;
+}
 .goBackList{
     display: block;
     width: 165px !important;
@@ -164,14 +193,25 @@ h1{
     width: unset !important;
     flex-direction: column;
 }
-.spiritButton{
+.popularContainerPathway{
+    flex-direction: column;
+    width: unset !important;
+}
+.spiritButton, .popularButton{
     width: 250px !important;
     margin: 5px !important;
     /* height: 60px; */
 }
-#pathwayBox button{
-    margin: 0px;
+/* .buttonsBoxSearchPage{
+    width: 95% !important;
 }
+.psButton{
+    margin: 0px auto 5px !important;
+    width: 30% !important;
+} */
+/* #pathwayBox button{
+    margin: 0px;
+} */
 
 .mainMenu{
     /* position: sticky;
@@ -186,6 +226,7 @@ h1{
     margin: 0px auto 5px;
     font-size: 16px;
     letter-spacing: 1px;
+    cursor: pointer;
     /* width: 80%; */
 }
 .quitRandom{
@@ -415,9 +456,9 @@ border: solid; */
     #pathwayBox{
         width: 80%;
     }
-    .mainMenu{
+    /* .mainMenu{
         width: 50%;
-    }
+    } */
     .basesContainer #pathwayBox{
         grid-column-end: 3;
     }
@@ -428,6 +469,18 @@ border: solid; */
     #selectedIngredDrink{
         grid-column-start: 1;
         grid-column-end: 3;
+    }
+    .buttonsBoxSearchPage{
+        flex-direction: column;
+    }
+    .psButton{
+        margin: 0px auto 5px !important;
+    }
+    .searchPage{
+        width: 70% !important;
+    }
+    #goTopButton{
+        right: 6% !important;
     }
     /* .previous img{
         margin: 0px 3px 4px 3px;
@@ -453,6 +506,17 @@ border: solid; */
     }
     .mainMenu{
         width: 60%;
+    }
+    .buttonsBoxSearchPage{
+        width: 82% !important;
+    }
+    .psButton{
+        /* margin: 0px auto 5px !important; */
+        width: 55% !important;
+        /* height: 58px; */
+    }
+    .searchPage {
+        width: 55% !important;
     }
     /* .spiritButton {
         width: 120px !important;
@@ -482,6 +546,18 @@ border: solid; */
     }
     .ingredItem{
         width: unset !important;
+    }
+    /* .buttonsBoxSearchPage{
+        flex-direction: unset !important;
+    } */
+}
+@media only screen and (min-width: 642px){
+    .buttonsBoxSearchPage{
+        flex-direction: unset !important;
+    }
+    .psButton{
+        /* height: unset !important; */
+        width: 38% !important;
     }
 }
 @media only screen and (min-width: 768px){
@@ -523,6 +599,14 @@ border: solid; */
     }
     #pathwayBox{
         width: 50%;
+        flex-direction: row !important;
+    }
+    /* .buttonsBoxSearchPage{
+        width: 95% !important;
+    } */
+    .psButton{
+        /* margin: 0px auto 5px !important; */
+        width: 30% !important;
     }
     /* .previous img{
         margin: 0px 4px 4px 4px

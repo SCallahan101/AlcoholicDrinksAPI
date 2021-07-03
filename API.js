@@ -10,6 +10,11 @@ function goBack(){
     console.log("Previous Button clicked");
     window.history.back();
 }
+
+function goBackToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 // function goForward(){
 //     console.log("Forwad button clicked");
 //     window.history.forward();
@@ -55,9 +60,14 @@ function goBack(){
 $(document).on('submit', '#searchForm', function(e){
     e.preventDefault();
     $('#searchResultList').html(``);
+    document.getElementById("goTopButton").style.visibility = "visible";
     let userInputValue = $('.searchValue').val();
     console.log('Value: ' + userInputValue);
+    searchInfoPage(userInputValue);
+    localStorage.setItem("searchTerm", userInputValue);
+});
 
+function searchInfoPage(userInputValue){
     let query = {
         i: `${userInputValue}`
     }
@@ -89,8 +99,7 @@ $(document).on('submit', '#searchForm', function(e){
             ingredientsInfoOnSelectedDrink(selectedDrinkValue);
         });
     });
-});
-
+}
 function infoOnSelectedDrink(selectedData){
     let query = {
         i: `${selectedData}`
@@ -98,6 +107,8 @@ function infoOnSelectedDrink(selectedData){
     $.getJSON(selectedIdSearchAPI, query, function(outputData){
         console.log("Retrieval data starting: ");
         console.log("Received the list with selected ingredient " + JSON.stringify(outputData.drinks));
+        $('#pathwayBox').html(`<button id="backToList" class="pageButton mainMenu psButton" onclick="backToSearchList()">Back to List</button>
+        <button class="pageButton psButton">Main Menu</button>`);
         let searchData = outputData.drinks;
         searchData.forEach(function(drinkData, i){
             console.log("Name of Drink: " + i + " " + drinkData.strDrink);
@@ -158,8 +169,17 @@ function ingredientsInfoOnSelectedDrink(idData){
             // $('#selectedDrinkIngredientsList').append(`<li class="ingredItem">- ${item} -</li>`);
             $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingredientsForUserSelectedDrink");
         });
+        document.getElementById("backToList").style.visibility = "visible";
+        document.getElementById("backToSelected").style.visibility = "visible";
     });
 };
+
+function backToSearchList(){
+    $('#searchResultList').html(``);
+    $('#pathwayBox').html(`<button class="pageButton psButton">Main Menu</button>`);
+    let searchInput = localStorage.getItem("searchTerm");
+    searchInfoPage(searchInput);
+}
 
 // $('.ingredientB').click(function(){
 //     console.log("ingredient button was clicked");
@@ -869,10 +889,9 @@ function popularDrinkCallMain(name){
                 <h3>Drink's Ingredient(s)</h3>
                 <ul id="selectedDrinkIngredientsList"></ul>
             </div>
-            <div id="pathwayBox">
-                <button class="pageButton previous" onclick="goBackFavDrinksPage()"><img src="../Misc/arrow-circle-left-solid.svg"></button>
-                <button class="mainMenu">Back to Main Menu</button>
-                <button class="pageButton forward" style="visibility: hidden;"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+            <div id="pathwayBox" class="popularContainerPathway">
+                <button class="pageButton popularButton" onclick="goBackFavDrinksPage()">Back to Popular List</button>
+                <button class="mainMenu popularButton">Back to Main Menu</button>
             </div>
         </div>
         `);

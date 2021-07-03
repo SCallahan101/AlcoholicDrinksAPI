@@ -32,11 +32,13 @@
                 </form> -->
                 <div id="searchResultList">    
                 </div>
-                <div id="pathwayBox">
-                    <button class="pageButton previous" onclick="goBack()"><img src="../Misc/arrow-circle-left-solid.svg"></button>
-                    <button class="pageButton mainMenu">Back to Main Menu</button>
-                    <button class="pageButton forward"><img src="../Misc/arrow-circle-right-solid.svg"></button>
+                <div id="pathwayBox" class="buttonsBoxSearchPage">
+                    <!-- <button id="backToList" class="pageButton previous" onclick="backToSearchList()" style="visibility: hidden;"><img src="../Misc/arrow-circle-left-solid.svg"></button> -->
+                    <button class="pageButton mainMenu searchPage">Back to Main Menu</button>
+                    <!-- <button id="backToSelected"class="pageButton forward" style="visibility: hidden;"><img src="../Misc/arrow-circle-right-solid.svg"></button> -->
                 </div>
+                <button id="goTopButton" onclick="goBackToTop()" style="visibility: hidden;"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
+                <div style="display: none;">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
         </div>
         <script src="../API.js" async defer></script>
