@@ -16,10 +16,8 @@ h1{
 }
 #main-container{
     width: 90%;
-    /* border: 1px solid; */
     background: linear-gradient(54.7deg, #0ad8c7 12%,#960ead 100%);
     padding: 3px;
-    /* height: 20vh; */
     margin: 0 auto;
 }
 #main-container h3{
@@ -51,7 +49,6 @@ h1{
     border-radius: 5px;
     border: none;
     position: fixed;
-    /* right: 40px; */
     bottom: 0px;
 }
 #upArrowImg{
@@ -71,12 +68,10 @@ h1{
 .searchValue, .nameSearchValue{
     width: 100%;
     text-align: center;
-    /* margin: 10px auto 0px; */
     border: none;
     padding: 8px;
     font-size: 16px;
     border-bottom: none;
-    /* border: 1px solid black; */
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0px;
@@ -84,11 +79,7 @@ h1{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-top: 1px solid white; */
 }
-
 .searchBox{
     border: none;
     width: 192px;
@@ -108,26 +99,17 @@ h1{
 /* , .nameSearchSubmitButton */
 .searchSubmitButton{
     width: 100%;
-    /* margin: 0px auto 15px; */
     display: block;
     padding: 8px;
     background: black;
-    /* border: 1px solid black; */
-    /* border-radius: 3px; */
-    /* margin: 10px auto; */
     border-top: none;
-    /* border: 1px solid black; */
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border: none;
-    /* border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white; */
     font-size: 16px;
     cursor: pointer;
-    /* width: 80%; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -137,14 +119,12 @@ h1{
 }
 .nameDrinkLi {
     list-style: none;
-    /* display: block; */
     width: 75%;
     text-align: center;
     margin: 0 auto;
 }
 .ingredItem{
     list-style: none;
-    /* display: block; */
     width: 75%;
     text-align: center;
     margin: 0 auto;
@@ -159,7 +139,6 @@ h1{
 }
 .itemLi{
     list-style: none;
-    /* display: block; */
     width: 75%;
     text-align: center;
     margin: 0 auto;
@@ -172,8 +151,6 @@ h1{
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background: linear-gradient(54.7deg,  #960ead 12%,#0ad8c7 100%);
     padding: 5px;
-    /* background: whitesmoke; */
-    /* color: black; */
     border: none;
     border-radius: 3px;
     margin: 7px auto;
@@ -192,14 +169,11 @@ h1{
     display: block;
     text-decoration: none;
     padding: 7px;
-    /* background: transparent; */
 }
 .randomAgain{
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
     background: linear-gradient(54.7deg, #960ead 12%,#0ad8c7 100%);
     padding: 5px;
-    /* background: whitesmoke; */
-    /* color: black; */
     border: none;
     border-radius: 3px;
     margin: 0px auto 10px;
@@ -217,8 +191,6 @@ h1{
     background: transparent;
 }
 .spiritBox {
-    /* display: unset; */
-    /* justify-content: space-around !important; */
     width: 62% !important;
     flex-direction: column;
 }
@@ -229,34 +201,17 @@ h1{
 .spiritButton, .popularButton{
     width: 100% !important;
     margin: 5px !important;
-    /* height: 60px; */
 }
-/* .buttonsBoxSearchPage{
-    width: 95% !important;
-}
-.psButton{
-    margin: 0px auto 5px !important;
-    width: 30% !important;
-} */
-/* #pathwayBox button{
-    margin: 0px;
-} */
-
 .mainMenu{
-    /* position: sticky;
-    bottom: 0px; */
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
     background: linear-gradient(54.7deg, #0ad8c7 20%, #960ead 100%);
     padding: 5px;
-    /* background: whitesmoke; */
-    /* color: black; */
     border: none;
     border-radius: 3px;
     margin: 0px auto 5px;
     font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
-    /* width: 80%; */
 }
 .quitRandom{
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
@@ -284,7 +239,6 @@ h1{
     margin-left: -22px;
     border-radius: 50px;
     background-color: transparent;
-    /* margin: 0px 4px 4px 3px; */
 }
 .forward img{
     width: 44px;
@@ -296,7 +250,6 @@ h1{
     margin-right: -22px;
     border-radius: 50px;
     background-color: transparent;
-    /* margin: 0px 3px 4px 4px; */
 }
 .basesContainer{
     display: grid;
@@ -329,8 +282,6 @@ h1{
     row-gap: 8px;
 }
 .gridDivDrink{
-    /* height: 126px; */
-    /* width: 126px; */
     text-align: center;
     border: 1px solid darkmagenta;
     position: relative;
@@ -347,22 +298,6 @@ h1{
     width: 100%;
     margin: 10px 0px;
 }
-/* .drinkTabLabel{
-    margin: 0px auto;
-    position: absolute;
-    right: 0px;
-    left: 0px;
-    bottom: 76px;
-    width: 150px;
-    height: 40px;
-    transform: skew(20deg);
-    background: white;
-    border: solid;
-} */
-/* .drinkDataCube{
-    border: none;
-    background-color: transparent;
-} */
 .drinkDataCube{
     position: relative;
     border: none;
@@ -375,22 +310,15 @@ h1{
     right: 0px;
     margin: 0 auto !important;
     width: 110px;
-    /* border:none;
-   background-color:transparent; */
-    /* outline:none;
-    position: relative; */
     background: none;
     color: black;
-    /* display: inline-block; */
     padding: 10px 3px 5px 10px !important;
-    /* bottom: 21px; */
     font-size: 13px;
     -webkit-transform: skew(-9deg);
 }
 .drinkName:after{
     background: white;
     color: black;
-    /* #3498db */
     border: solid;
 	position: absolute;
 	content: '';
@@ -403,35 +331,6 @@ h1{
 	-o-transform: skew(-9deg); 
 	z-index: -1;
 }
-
-/* margin: 0px auto;
-position: absolute;
-right: 0px;
-left: 0px;
-bottom: 76px;
-width: 150px;
-height: 40px;
-transform: skew( 
-20deg
-);
-background: white;
-border: solid; */
-/* #listDirectionContainer{
-    display: block;
-    text-align: center;
-    margin: 10px 0px;
-}
-.listButton{
-    width: 80px;
-    padding: 5px;
-    margin: 2px 10px;
-} */
-/* .mainMenu{
-    position: sticky;
-    bottom: 0px; */
-    /* margin: 0 auto;
-    display: block; */
-/* } */
 .imgButton{
     grid-column-start: 1;
     grid-column-end: 3;
@@ -441,16 +340,10 @@ border: solid; */
     grid-template-columns: 1fr;
 }
 #cancelGrid{
-    /* display: unset; */
     grid-column-start: 2;
     grid-column-end: 3;
     margin: 0px auto 15px;
 }
-/* #selectedIngredDrink{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    margin: 0px auto 15px;
-} */
 #selectedIngredDrink h2{
     text-align: center;
 }
@@ -462,32 +355,14 @@ border: solid; */
 #selectedSpiritDrink h2{
     text-align: center;
 }
-/* .modalStyle{
-    display: none;
-    z-index: 1;
-    width: 200px;
-    border: white solid;
-    position: sticky;
-    left: 0;
-    right: 0;
-    bottom: 40%;
-    margin: 0 auto;
-    padding: 20px;
-} */
 
 @media only screen and (min-width: 320px){
-    #main-container{
-
-    }
     .randomAgain, .quitRandom{
         width: 80%;
     }
     #pathwayBox{
         width: 80%;
     }
-    /* .mainMenu{
-        width: 50%;
-    } */
     .basesContainer #pathwayBox{
         grid-column-end: 3;
     }
@@ -511,18 +386,11 @@ border: solid; */
     #goTopButton{
         right: 6% !important;
     }
-    /* .previous img{
-        margin: 0px 3px 4px 3px;
-    }
-    .forward img{
-        margin: 0px 3px 4px 3px;
-    } */
 }
 @media only screen and (min-width: 425px){
     #listOfDrinksSelectedIngredient{
         grid-template-columns: 1fr 1fr;
         column-gap: 10px;
-        /* row-gap: 10px; */
     }
     #drinksList{
         grid-template-columns: 1fr 1fr;
@@ -540,22 +408,11 @@ border: solid; */
         width: 82% !important;
     }
     .psButton{
-        /* margin: 0px auto 5px !important; */
         width: 55% !important;
-        /* height: 58px; */
     }
     .searchPage {
         width: 55% !important;
     }
-    /* .spiritButton {
-        width: 120px !important;
-    } */
-    /* .previous img{
-        margin: 0px 4px 4px 4px;
-    }
-    .forward img{
-        margin: 0px 3px 4px 3px;
-    } */
 }
 @media only screen and (min-width: 426px){
     #selectedIngredDrink{
@@ -576,16 +433,12 @@ border: solid; */
     .ingredItem{
         width: unset !important;
     }
-    /* .buttonsBoxSearchPage{
-        flex-direction: unset !important;
-    } */
 }
 @media only screen and (min-width: 642px){
     .buttonsBoxSearchPage{
         flex-direction: unset !important;
     }
     .psButton{
-        /* height: unset !important; */
         width: 38% !important;
     }
 }
@@ -600,7 +453,6 @@ border: solid; */
         width: 60%;
     }
     .basesContainer{
-        /* display: grid; */
         grid-template-columns: 1fr 1fr 1fr;
     }
     .basesContainer #pathwayBox{
@@ -630,22 +482,12 @@ border: solid; */
         width: 50%;
         flex-direction: row !important;
     }
-    /* .buttonsBoxSearchPage{
-        width: 95% !important;
-    } */
     .psButton{
-        /* margin: 0px auto 5px !important; */
         width: 30% !important;
     }
     .searchPage{
         width: 35% !important;
     }
-    /* .previous img{
-        margin: 0px 4px 4px 4px
-    }
-    .forward img{
-        margin: 0px 4px 4px 3px
-    } */
 }
 @media only screen and (min-width: 1024px){
     #listOfDrinksSelectedIngredient{
@@ -684,8 +526,5 @@ border: solid; */
     #pathwayBox {
         width: 45%;
     }
-    /* .forward img {
-        margin: 0px 3px 4px 3px;
-    } */
 }
 
