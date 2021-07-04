@@ -171,6 +171,8 @@ h1{
     width: 80%;
     letter-spacing: 1px;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .searchPage{
     width: 35% !important;
