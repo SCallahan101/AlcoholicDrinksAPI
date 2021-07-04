@@ -92,6 +92,7 @@ function searchInfoPage(userInputValue){
         // let selectedDrinkValue = $('.drinkDataCube').val();
         // console.log('Value: ' + selectedDrinkValue);
         $('.drinkDataCube').click(function(){
+            document.getElementById("goTopButton").style.visibility = "hidden";
             let selectedDrinkValue = $(this).val();
             // e.preventDefault();
             console.log('DataCube has been clicked! - ' + selectedDrinkValue);
@@ -107,8 +108,8 @@ function infoOnSelectedDrink(selectedData){
     $.getJSON(selectedIdSearchAPI, query, function(outputData){
         console.log("Retrieval data starting: ");
         console.log("Received the list with selected ingredient " + JSON.stringify(outputData.drinks));
-        $('#pathwayBox').html(`<button id="backToList" class="pageButton mainMenu psButton" onclick="backToSearchList()">Back to List</button>
-        <button class="pageButton psButton">Main Menu</button>`);
+        $('#pathwayBox').html(`<button id="backToList" class="pageButton mainMenu psButton" onclick="backToSearchList()"><span>Back to List</span></button>
+        <button class="pageButton mainMenu psButton"><span>Main Menu</span></button>`);
         let searchData = outputData.drinks;
         searchData.forEach(function(drinkData, i){
             console.log("Name of Drink: " + i + " " + drinkData.strDrink);
@@ -176,7 +177,8 @@ function ingredientsInfoOnSelectedDrink(idData){
 
 function backToSearchList(){
     $('#searchResultList').html(``);
-    $('#pathwayBox').html(`<button class="pageButton psButton">Main Menu</button>`);
+    $('#pathwayBox').html(`<button class="pageButton mainMenu psButton"><span>Main Menu</span></button>`);
+    document.getElementById("goTopButton").style.visibility = "visible";
     let searchInput = localStorage.getItem("searchTerm");
     searchInfoPage(searchInput);
 }
@@ -244,9 +246,10 @@ function selectedIngredientMain(drinkIngredient){
             <div id="listOfDrinksSelectedIngredient"></div>
         </div>
         <div id="pathwayBox" class="spiritBox">
-            <button class="pageButton spiritButton" onclick="goBackIngredientPage()">Ingredients List</button>
-            <button class="mainMenu spiritButton">Back to Main Menu</button>
+            <button class="pageButton spiritButton" onclick="goBackIngredientPage()"><span>Ingredients List</span></button>
+            <button class="mainMenu spiritButton"><span>Main Menu</span></button>
         </div>
+        <button id="goTopButton" onclick="goBackToTop()"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
     </div>
     `);
 }
@@ -328,6 +331,7 @@ function searchDrinkIdInfo(dataID){
     }
     $.getJSON(selectedIdSearchAPI, query, function(outputData){
         console.log("Retrieval data starting: ");
+        document.getElementById("goTopButton").style.visibility = "hidden";
         console.log("Received the list with selected ingredient " + JSON.stringify(outputData.drinks));
         let searchData = outputData.drinks;
         searchData.forEach(function(drinkData, i){
@@ -342,7 +346,7 @@ function searchDrinkIdInfo(dataID){
                     <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingSelectedDrink"></ul>
-                    <button class="pageButton goBackList" onclick="goForwardSelectedIngredient()">Back to Drinks List</button>
+                    <button class="pageButton goBackList" onclick="goForwardSelectedIngredient()"><span>Back</span></button>
                 </div>
             `);
         });
@@ -526,9 +530,10 @@ function selectedSpiritMain(base){
                 <div id="drinksList"></div>
             </div>
             <div id="pathwayBox" class="spiritBox">
-                <button class="pageButton spiritButton" onclick="goBackSpiritBasePage()">Spirits List</button>
-                <button class="mainMenu spiritButton">Main Menu</button>
+                <button class="pageButton spiritButton" onclick="goBackSpiritBasePage()"><span>Spirits List</span></button>
+                <button class="mainMenu spiritButton"><span>Main Menu</span></button>
             </div>
+            <button id="goTopButton" onclick="goBackToTop()"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
         </div>
         `);
     });
@@ -639,6 +644,7 @@ function searchSpiritIdInfo(dataID){
     }
     $.getJSON(selectedIdSearchAPI, query, function(outputData){
         console.log("Retrieval data starting: ");
+        document.getElementById("goTopButton").style.visibility = "hidden";
         console.log("Received the list with selected ingredient " + JSON.stringify(outputData.drinks));
         let searchData = outputData.drinks;
         searchData.forEach(function(drinkData, i){
@@ -653,7 +659,7 @@ function searchSpiritIdInfo(dataID){
                     <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingSelectedDrink"></ul>
-                    <button class="pageButton goBackList" onclick="goForwardSelectedSpirit()">Back to Drinks List</button>
+                    <button class="pageButton goBackList" onclick="goForwardSelectedSpirit()"><span>Back</span></button>
                 </div>
             `);
         });
@@ -890,8 +896,8 @@ function popularDrinkCallMain(name){
                 <ul id="selectedDrinkIngredientsList"></ul>
             </div>
             <div id="pathwayBox" class="popularContainerPathway">
-                <button class="pageButton popularButton" onclick="goBackFavDrinksPage()">Back to Popular List</button>
-                <button class="mainMenu popularButton">Back to Main Menu</button>
+                <button class="pageButton popularButton" onclick="goBackFavDrinksPage()"><span>Popular List</span></button>
+                <button class="mainMenu popularButton"><span>Main Menu</span></button>
             </div>
         </div>
         `);
@@ -992,8 +998,8 @@ function randomizeTheDrinkPartOne(){
                 <h3>Drink's Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
             </div>
-            <button class="randomAgain">Randomize Again</button>
-            <button class="quitRandom">Back to Main Menu</button>
+            <button class="randomAgain"><span>Randomize Again</span></button>
+            <button class="quitRandom"><span>Main Menu</span></button>
             </div>
         </div>
         `);

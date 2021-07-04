@@ -15,30 +15,31 @@
             <br>POISON???
         </h1>
         <div id="main-container">
-            <h3 class="">Search for your "MUST have" ingredient in your Drinks</h3>
-            <p class="">Database of Cocktails</p>
-            <div class="buttonsContainer">
-                <form id="searchForm">
-                    <input type="text" value="" placeholder="Search..." class="searchValue">
-                    <br>
-                    <input type="submit" value="Search Drinks!" class="searchSubmitButton">
-                </form>
-                <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
-                <!-- <p>OR</p>
-                <form id="nameSearchForm">
-                    <input type="text" value="" placeholder="Search..." class="nameSearchValue">
-                    <br>
-                    <input type="submit" value="Search Name!" class="nameSearchSubmitButton">
-                </form> -->
-                <div id="searchResultList">    
+            <div id="justABlackCover">
+                <h3 class="">Search for your "MUST have" ingredient in your Drinks</h3>
+                <p class="">Database of Cocktails</p>
+                <div class="buttonsContainer">
+                    <form id="searchForm">
+                        <div class="searchBox topPart"><input type="text" value="" placeholder="Search..." class="searchValue"></div>
+                        <div class="searchBox bottomPart"><input type="submit" value="Search Drinks!" class="searchSubmitButton"></div>
+                    </form>
+                    <p>A little warning with the searching. The term that you may type doesn't always show up like google. Play around with the choice of words.</p>
+                    <!-- <p>OR</p>
+                    <form id="nameSearchForm">
+                        <input type="text" value="" placeholder="Search..." class="nameSearchValue">
+                        <br>
+                        <input type="submit" value="Search Name!" class="nameSearchSubmitButton">
+                    </form> -->
+                    <div id="searchResultList">    
+                    </div>
+                    <div id="pathwayBox" class="buttonsBoxSearchPage">
+                        <!-- <button id="backToList" class="pageButton previous" onclick="backToSearchList()" style="visibility: hidden;"><img src="../Misc/arrow-circle-left-solid.svg"></button> -->
+                        <button class="pageButton mainMenu searchPage"><span>Main Menu</span></button>
+                        <!-- <button id="backToSelected"class="pageButton forward" style="visibility: hidden;"><img src="../Misc/arrow-circle-right-solid.svg"></button> -->
+                    </div>
+                    <button id="goTopButton" onclick="goBackToTop()" style="visibility: hidden;"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
+                    <div style="display: none;">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                 </div>
-                <div id="pathwayBox" class="buttonsBoxSearchPage">
-                    <!-- <button id="backToList" class="pageButton previous" onclick="backToSearchList()" style="visibility: hidden;"><img src="../Misc/arrow-circle-left-solid.svg"></button> -->
-                    <button class="pageButton mainMenu searchPage">Back to Main Menu</button>
-                    <!-- <button id="backToSelected"class="pageButton forward" style="visibility: hidden;"><img src="../Misc/arrow-circle-right-solid.svg"></button> -->
-                </div>
-                <button id="goTopButton" onclick="goBackToTop()" style="visibility: hidden;"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
-                <div style="display: none;">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
         </div>
         <script src="../API.js" async defer></script>

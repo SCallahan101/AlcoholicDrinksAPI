@@ -55,9 +55,7 @@ h1{
     bottom: 0px;
 }
 #upArrowImg{
-    background: linear-gradient( 
-54.7deg
- , #960ead 12%,#0ad8c7 100%);
+    background: linear-gradient(54.7deg, #960ead 12%,#0ad8c7 100%);
     width: 90%;
     position: absolute;
     top: 50%;
@@ -71,25 +69,44 @@ h1{
     margin: 0 auto;
 }
 .searchValue, .nameSearchValue{
-    width: 192px;
-    margin: 10px auto 0px;
-    padding: 10px;
+    width: 100%;
+    text-align: center;
+    /* margin: 10px auto 0px; */
+    border: none;
+    padding: 8px;
     font-size: 16px;
     border-bottom: none;
     /* border: 1px solid black; */
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    border-left: 1px solid white;
+    /* border-left: 1px solid white;
     border-right: 1px solid white;
-    border-top: 1px solid white;
+    border-top: 1px solid white; */
+}
+
+.searchBox{
+    border: none;
+    width: 192px;
+    background: linear-gradient(54.7deg, #960ead 12%,#0ad8c7 100%);
+}
+.topPart{
+    padding: 5px 5px 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.bottomPart{
+    margin: 0px auto 15px;
+    padding: 0px 5px 5px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 /* , .nameSearchSubmitButton */
 .searchSubmitButton{
-    width: 192px;
-    margin: 0px auto 15px;
+    width: 100%;
+    /* margin: 0px auto 15px; */
     display: block;
-    padding: 10px;
-    background: linear-gradient(54.7deg,  #960ead 12%,#0ad8c7 100%);
+    padding: 8px;
+    background: black;
     /* border: 1px solid black; */
     /* border-radius: 3px; */
     /* margin: 10px auto; */
@@ -97,9 +114,10 @@ h1{
     /* border: 1px solid black; */
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-    border-left: 1px solid white;
+    border: none;
+    /* border-left: 1px solid white;
     border-right: 1px solid white;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid white; */
     font-size: 16px;
     cursor: pointer;
     /* width: 80%; */
@@ -143,12 +161,12 @@ h1{
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background: linear-gradient(54.7deg,  #960ead 12%,#0ad8c7 100%);
-    padding: 10px;
+    padding: 5px;
     /* background: whitesmoke; */
     /* color: black; */
     border: none;
     border-radius: 3px;
-    margin: 10px auto;
+    margin: 7px auto;
     font-size: 16px;
     width: 80%;
     letter-spacing: 1px;
@@ -160,15 +178,16 @@ h1{
     display: block;
     width: 165px !important;
 }
-.pageButton a{
+.pageButton a, span{
     display: block;
     text-decoration: none;
-    background: transparent;
+    padding: 7px;
+    /* background: transparent; */
 }
 .randomAgain{
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
     background: linear-gradient(54.7deg, #960ead 12%,#0ad8c7 100%);
-    padding: 10px;
+    padding: 5px;
     /* background: whitesmoke; */
     /* color: black; */
     border: none;
@@ -190,7 +209,7 @@ h1{
 .spiritBox {
     /* display: unset; */
     /* justify-content: space-around !important; */
-    width: unset !important;
+    width: 62% !important;
     flex-direction: column;
 }
 .popularContainerPathway{
@@ -198,7 +217,7 @@ h1{
     width: unset !important;
 }
 .spiritButton, .popularButton{
-    width: 250px !important;
+    width: 100% !important;
     margin: 5px !important;
     /* height: 60px; */
 }
@@ -218,7 +237,7 @@ h1{
     bottom: 0px; */
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
     background: linear-gradient(54.7deg, #0ad8c7 20%, #960ead 100%);
-    padding: 10px;
+    padding: 5px;
     /* background: whitesmoke; */
     /* color: black; */
     border: none;
@@ -232,7 +251,7 @@ h1{
 .quitRandom{
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
     background: linear-gradient(54.7deg, #0ad8c7 20%, #960ead 100%);
-    padding: 10px;
+    padding: 5px;
     border: none;
     border-radius: 3px;
     margin: 0px auto 5px;
@@ -607,6 +626,9 @@ border: solid; */
     .psButton{
         /* margin: 0px auto 5px !important; */
         width: 30% !important;
+    }
+    .searchPage{
+        width: 35% !important;
     }
     /* .previous img{
         margin: 0px 4px 4px 4px
