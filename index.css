@@ -81,6 +81,9 @@ h1{
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     /* border-left: 1px solid white;
     border-right: 1px solid white;
     border-top: 1px solid white; */
@@ -116,6 +119,8 @@ h1{
     /* border: 1px solid black; */
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     border: none;
     /* border-left: 1px solid white;
     border-right: 1px solid white;
