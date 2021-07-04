@@ -170,6 +170,7 @@ h1{
     font-size: 16px;
     width: 80%;
     letter-spacing: 1px;
+    -webkit-appearance: none;
 }
 .searchPage{
     width: 35% !important;
