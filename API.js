@@ -892,7 +892,7 @@ function popularDrinkCallMain(name){
             <div id="resultOfPopularDrink">
                 <h3>"${name}"</h3>
                 <img class="picOfDrink" src="${choiceUrl[0]}">
-                <h3>Drink's Ingredient(s)</h3>
+                <h3>Ingredient(s)</h3>
                 <ul id="selectedDrinkIngredientsList"></ul>
             </div>
             <div id="pathwayBox" class="popularContainerPathway">
@@ -995,7 +995,7 @@ function randomizeTheDrinkPartOne(){
             <div id="resultOfRandomize">
                 <img class="picOfDrink" src="${drinkPic}">
                 <h3>"${drinkName}"</h3>
-                <h3>Drink's Ingredient(s)</h3>
+                <h3>Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
             </div>
             <button class="randomAgain"><span>Randomize Again</span></button>

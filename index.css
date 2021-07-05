@@ -169,6 +169,7 @@ h1{
     display: block;
     text-decoration: none;
     padding: 7px;
+    text-align: center;
 }
 .randomAgain{
     box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
@@ -179,6 +180,7 @@ h1{
     margin: 0px auto 10px;
     font-size: 16px;
     width: 80%;
+    cursor: pointer;
 }
 #pathwayBox{
     display: flex;
@@ -186,9 +188,11 @@ h1{
     margin: 5px auto;
     position: sticky;
     bottom: 0px;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
+    /* justify-content: space-between;
+    align-items: center; */
     background: transparent;
+    justify-content: center;
 }
 .spiritBox {
     width: 62% !important;
@@ -196,7 +200,7 @@ h1{
 }
 .popularContainerPathway{
     flex-direction: column;
-    width: unset !important;
+    /* width: unset !important; */
 }
 .spiritButton, .popularButton{
     width: 100% !important;
@@ -221,6 +225,7 @@ h1{
     border-radius: 3px;
     margin: 0px auto 5px;
     font-size: 16px;
+    cursor: pointer;
 }
 .previous, .forward{
     position: relative;
@@ -283,7 +288,7 @@ h1{
 }
 .gridDivDrink{
     text-align: center;
-    border: 1px solid darkmagenta;
+    /* border: 1px solid darkmagenta; */
     position: relative;
 }
 .alcoholBaseChoice{
@@ -378,7 +383,7 @@ h1{
         flex-direction: column;
     }
     .psButton{
-        margin: 0px auto 5px !important;
+        margin: 0px 10px 5px !important;
     }
     .searchPage{
         width: 70% !important;
@@ -408,7 +413,7 @@ h1{
         width: 82% !important;
     }
     .psButton{
-        width: 55% !important;
+        width: 70% !important;
     }
     .searchPage {
         width: 55% !important;
