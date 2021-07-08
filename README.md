@@ -8,4 +8,21 @@ I noticed that the API isn't perfect where it is occasionally not working due t
 
 The API source - https://www.thecocktaildb.com/api.php
 
+The Project Link - https://scallahan101.github.io/AlcoholicDrinksAPI/index.html
+
 This project includes HTML, CSS, JavaScript, and jQuery. 
+
+Ex: Front page 
+
+![image](https://i.gyazo.com/5d15d8af0cc34b47faba652581375fe6.png)
+
+The front page composed several features - Search Engine, Popular drinks selection, Ingredients selection, Alcohol Bases selection, and Randomize drink. I am trying to provide the audience of users an opportunity to find or discover an alcoholic drink that may interest them. Since the pandemic started and we all are trying new stuff and looking for something new to try out. This API provides a good range of drinks to be discovered. Also, at the same time, I want to improve my skills with self-navigate with the API while using jQuery as a good practice. 
+
+
+Ex: The list of drinks shown from the database
+
+![image](https://i.gyazo.com/7e7541e09d7a5e9b9adfe00438c7aabe.jpg)
+
+Ex: After select the drink that you want to take a look
+
+![image](https://i.gyazo.com/50682fdabe53d38f02f28ba2e014836b.png)
