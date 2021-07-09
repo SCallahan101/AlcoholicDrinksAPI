@@ -536,6 +536,19 @@ function selectedSpiritMain(base){
             <button id="goTopButton" onclick="goBackToTop()"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
         </div>
         `);
+        listOfDrinks.forEach(function(theDrink, i){
+            console.log("Name of Drink: " + theDrink.strDrink);
+            let name = theDrink.strDrink;
+            console.log("Name of Drink: " + theDrink.strDrinkThumb);
+            let srcLink = theDrink.strDrinkThumb;
+            let drinkID = theDrink.idDrink;
+            $('#drinksList').append(`
+            <div class="gridDivDrink" onclick="searchSpiritIdInfo(${drinkID})">
+                <img src="${srcLink}" class="drinkImg">
+                <p class="drinkName">${name}</p>
+            </div>`);
+            // $(`<div class="gridDivDrink">${name}</div>`).appendTo("#drinksList");
+        });
     });
 }
 $("#main-container").on('click', ".alcoholBaseChoice",function(){
@@ -611,19 +624,19 @@ function selectedSpiritSecondary(base){
         // console.log("After arrangement set up: " + listOfPotentials);
         //
       
-        listOfDrinks.forEach(function(theDrink, i){
-            console.log("Name of Drink: " + theDrink.strDrink);
-            let name = theDrink.strDrink;
-            console.log("Name of Drink: " + theDrink.strDrinkThumb);
-            let srcLink = theDrink.strDrinkThumb;
-            let drinkID = theDrink.idDrink;
-            $('#drinksList').append(`
-            <div class="gridDivDrink" onclick="searchSpiritIdInfo(${drinkID})">
-                <img src="${srcLink}" class="drinkImg">
-                <p class="drinkName">${name}</p>
-            </div>`);
-            // $(`<div class="gridDivDrink">${name}</div>`).appendTo("#drinksList");
-        });
+        // listOfDrinks.forEach(function(theDrink, i){
+        //     console.log("Name of Drink: " + theDrink.strDrink);
+        //     let name = theDrink.strDrink;
+        //     console.log("Name of Drink: " + theDrink.strDrinkThumb);
+        //     let srcLink = theDrink.strDrinkThumb;
+        //     let drinkID = theDrink.idDrink;
+        //     $('#drinksList').append(`
+        //     <div class="gridDivDrink" onclick="searchSpiritIdInfo(${drinkID})">
+        //         <img src="${srcLink}" class="drinkImg">
+        //         <p class="drinkName">${name}</p>
+        //     </div>`);
+        //     // $(`<div class="gridDivDrink">${name}</div>`).appendTo("#drinksList");
+        // });
     });
 }
 function goBackSpiritBasePage(){
