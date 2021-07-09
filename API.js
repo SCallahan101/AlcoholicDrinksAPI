@@ -350,20 +350,7 @@ function searchDrinkIdInfo(dataID){
                 </div>
             `);
         });
-    });
-    ingredientsInfoOnSelectedIngDrink(dataID);
-    // infoOnSelectedDrink(dataID);
-    // ingredientsInfoOnSelectedDrink(dataID);
-}
-function ingredientsInfoOnSelectedIngDrink(idData){
-    console.log("Testing Phase --- ");
-    let query = {
-        i: `${idData}`
-    }
-    $.getJSON(selectedIdSearchAPI, query, function(info){
-        console.log("Received the drink data " + JSON.stringify(info.drinks));
-        let drinkPackage = info.drinks;
-        let selectedDrinkIngredients = drinkPackage.map(function(data){
+        let selectedDrinkIngredients = searchData.map(function(data){
             let ingredients = [
                 data.strIngredient1, 
                 data.strIngredient2, 
@@ -396,6 +383,52 @@ function ingredientsInfoOnSelectedIngDrink(idData){
             // $('#selectedDrinkIngredientsList').append(`<li class="ingredItem">- ${item} -</li>`);
             $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingSelectedDrink");
         });
+    });
+    ingredientsInfoOnSelectedIngDrink(dataID);
+    // infoOnSelectedDrink(dataID);
+    // ingredientsInfoOnSelectedDrink(dataID);
+}
+function ingredientsInfoOnSelectedIngDrink(idData){
+    console.log("Testing Phase --- ");
+    let query = {
+        i: `${idData}`
+    }
+    $.getJSON(selectedIdSearchAPI, query, function(info){
+        console.log("Received the drink data " + JSON.stringify(info.drinks));
+        let drinkPackage = info.drinks;
+        // let selectedDrinkIngredients = drinkPackage.map(function(data){
+        //     let ingredients = [
+        //         data.strIngredient1, 
+        //         data.strIngredient2, 
+        //         data.strIngredient3, 
+        //         data.strIngredient4, 
+        //         data.strIngredient5, 
+        //         data.strIngredient6, 
+        //         data.strIngredient7, 
+        //         data.strIngredient8, 
+        //         data.strIngredient9, 
+        //         data.strIngredient10
+        //     ];
+        //     // return ingredients;
+        //     console.log("Pre-filter: " + ingredients);
+        //     let filteredArray = ingredients.filter(function(el){
+        //         return el != null;
+        //     });
+        //     console.log("Post-filter with no Null(s): " + filteredArray);
+        //     return filteredArray;
+        // });
+        // console.log("Info received: " + selectedDrinkIngredients);
+        // let legitArray = [];
+        // for(let i = 0; i < selectedDrinkIngredients.length; i++){
+        //     legitArray.push(selectedDrinkIngredients[i]);
+        //     console.log(legitArray);
+        // };
+        // console.log("After arrangement set up: " + legitArray);
+        // legitArray[0].forEach(function(item, i){
+        //     console.log("Item: " + item);
+        //     // $('#selectedDrinkIngredientsList').append(`<li class="ingredItem">- ${item} -</li>`);
+        //     $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingSelectedDrink");
+        // });
     });
 };
 
