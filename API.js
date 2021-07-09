@@ -1003,12 +1003,6 @@ function randomizeTheDrinkPartOne(){
             </div>
         </div>
         `);
-    });
-    console.log("randomize button was clicked");
-    $.getJSON(randomDrinkAPI, function(data){
-        console.log(data.drinks);
-        let drinkResult = data.drinks;
-        //Get Drink Ingredients
         let drinkIngredients = drinkResult.map(function(data){
             let ingredients = [
                 data.strIngredient1, 
@@ -1057,6 +1051,59 @@ function randomizeTheDrinkPartOne(){
             $(`<li class="itemLi">- ${item} -</li>`).appendTo("#ingredientsList");
         });
     });
+    console.log("randomize button was clicked");
+    // $.getJSON(randomDrinkAPI, function(data){
+    //     console.log(data.drinks);
+    //     let drinkResult = data.drinks;
+        //Get Drink Ingredients
+        // let drinkIngredients = drinkResult.map(function(data){
+        //     let ingredients = [
+        //         data.strIngredient1, 
+        //         data.strIngredient2, 
+        //         data.strIngredient3, 
+        //         data.strIngredient4, 
+        //         data.strIngredient5, 
+        //         data.strIngredient6, 
+        //         data.strIngredient7, 
+        //         data.strIngredient8, 
+        //         data.strIngredient9, 
+        //         data.strIngredient10
+        //     ];
+        //     // return ingredients;
+        //     console.log("Pre-filter: " + ingredients);
+        //     let filteredArray = ingredients.filter(function(el){
+        //         return el != null;
+        //     });
+        //     console.log("Post-filter with no Null(s): " + filteredArray);
+        //     return filteredArray;
+        //     // console.log("Post-filter: " + filteredArray);
+        //     // let legitArray = [];
+        //     // for(let i = 0; i < filteredArray.length; i++){
+        //     //     // console.log("Before return: " + filteredArray[i]);
+        //     //     legitArray.push(filteredArray[i]);
+        //     //     console.log(legitArray);
+        //     // };
+
+        //     // return new Array(legitArray);
+        // });
+        // console.log("Info received: " + drinkIngredients);
+        // // let filteredArray = drinkIngredients.filter(function(el){
+        // //     return el != null;
+        // // });
+        // // console.log("Post-filter: " + filteredArray);
+        // let legitArray = [];
+        // for(let i = 0; i < drinkIngredients.length; i++){
+        //     // console.log("Before return: " + drinkIngredients[i]);
+        //     legitArray.push(drinkIngredients[i]);
+        //     console.log(legitArray);
+        // };
+        // console.log("After arrangement set up: " + legitArray);
+        // legitArray[0].forEach(function(item, i){
+        //     console.log("Item: " + item);
+        //     // $('#ingredientsList').append(`<li>${item}</li>`);
+        //     $(`<li class="itemLi">- ${item} -</li>`).appendTo("#ingredientsList");
+        // });
+    // });
 };
 
 $('.randomB').click(function(){
