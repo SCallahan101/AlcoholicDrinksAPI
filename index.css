@@ -382,9 +382,9 @@ h1{
     .buttonsBoxSearchPage{
         flex-direction: column;
     }
-    .psButton{
+    /* .psButton{
         margin: 0px 10px 5px !important;
-    }
+    } */
     .searchPage{
         width: 70% !important;
     }
