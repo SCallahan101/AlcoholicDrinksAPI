@@ -43,7 +43,7 @@ function searchInfoPage(userInputValue){
             let drinkID = drinkData.idDrink;
             $('#searchResultList').append(`
                <button class="drinkDataCube" value="${drinkID}">
-                    <img src="${srcLink}" class="drinkImg">
+                    <img src="${srcLink}" alt="${name}" class="drinkImg">
                     <div class="drinkName">${name}</div>
                </button>
             `);
@@ -74,7 +74,7 @@ function infoOnSelectedDrink(selectedData){
             let srcLink = drinkData.strDrinkThumb;
             $('#searchResultList').html(`
                 <div id="cancelGrid">
-                    <img class="selectedDrinkImg" src="${srcLink}">
+                    <img class="selectedDrinkImg" alt="${name}" src="${srcLink}">
                     <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingredientsForUserSelectedDrink"></ul>
@@ -171,7 +171,7 @@ function selectedIngredientSecondary(drinkIngredient){
             let drinkID = ingredientDrink.idDrink;
             $('#listOfDrinksSelectedIngredient').append(`
             <div class="gridDivDrink" onclick="searchDrinkIdInfo(${drinkID})">
-                <img src="${srcLink}" class="drinkImg">
+                <img src="${srcLink}" alt="${name}" class="drinkImg">
                 <p class="drinkName">${name}</p>
             </div>`);
         });
@@ -196,7 +196,7 @@ function searchDrinkIdInfo(dataID){
             let srcLink = drinkData.strDrinkThumb;
             $('#listOfDrinksSelectedIngredient').html(`
                 <div id="selectedIngredDrink">
-                    <img class="selectedDrinkImg" src="${srcLink}">
+                    <img class="selectedDrinkImg" alt="${name}" src="${srcLink}">
                     <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingSelectedDrink"></ul>
@@ -280,7 +280,7 @@ function selectedSpiritMain(base){
                 <button class="pageButton spiritButton" onclick="goBackSpiritBasePage()"><span>Spirits List</span></button>
                 <button class="mainMenu spiritButton"><span>Main Menu</span></button>
             </div>
-            <button id="goTopButton" onclick="goBackToTop()"><img id="upArrowImg" src="../Misc/up-arrow-box.png"></button>
+            <button id="goTopButton" onclick="goBackToTop()"><img id="upArrowImg" alt="upArrowImg" src="../Misc/up-arrow-box.png"></button>
         </div>
         `);
         listOfDrinks.forEach(function(theDrink, i){
@@ -291,7 +291,7 @@ function selectedSpiritMain(base){
             let drinkID = theDrink.idDrink;
             $('#drinksList').append(`
             <div class="gridDivDrink" onclick="searchSpiritIdInfo(${drinkID})">
-                <img src="${srcLink}" class="drinkImg">
+                <img src="${srcLink}" alt="${name}" class="drinkImg">
                 <p class="drinkName">${name}</p>
             </div>`);
         });
@@ -340,7 +340,7 @@ function searchSpiritIdInfo(dataID){
             let srcLink = drinkData.strDrinkThumb;
             $('#drinksList').html(`
                 <div id="selectedSpiritDrink">
-                    <img class="selectedDrinkImg" src="${srcLink}">
+                    <img class="selectedDrinkImg" alt="${name}" src="${srcLink}">
                     <h2>${name}</h2>
                     <p> ▼ Ingredients ▼ </p>
                     <ul id="ingSelectedDrink"></ul>
@@ -411,7 +411,7 @@ function popularDrinkCallMain(name){
         <div class="buttonsContainer">
             <div id="resultOfPopularDrink">
                 <h3>"${name}"</h3>
-                <img class="picOfDrink" src="${choiceUrl[0]}">
+                <img class="picOfDrink" alt="${name}" src="${choiceUrl[0]}">
                 <h3>Ingredient(s)</h3>
                 <ul id="selectedDrinkIngredientsList"></ul>
             </div>
@@ -491,7 +491,7 @@ function randomizeTheDrinkPartOne(){
         $("#main-container").html(`
         <div class="buttonsContainer">
             <div id="resultOfRandomize">
-                <img class="picOfDrink" src="${drinkPic}">
+                <img class="picOfDrink" alt="${drinkName}" src="${drinkPic}">
                 <h3>"${drinkName}"</h3>
                 <h3>Ingredient(s)</h3>
                 <ul id="ingredientsList"></ul>
