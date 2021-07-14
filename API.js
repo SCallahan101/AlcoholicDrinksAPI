@@ -53,7 +53,6 @@ function searchInfoPage(userInputValue){
             let selectedDrinkValue = $(this).val();
             console.log('DataCube has been clicked! - ' + selectedDrinkValue);
             infoOnSelectedDrink(selectedDrinkValue);
-            ingredientsInfoOnSelectedDrink(selectedDrinkValue);
         });
     });
 }
@@ -152,11 +151,6 @@ function selectedIngredientMain(drinkIngredient){
     `);
 }
 
-// $("#main-container").on('click', ".ingredientBaseButton",function(){
-//     console.log('The ingredient base has been selected');
-//     console.log("Ingredient selected: " + $(this).attr("value"));
-//     let drinkIngredient = $(this).attr("value");
-// });
 function selectedIngredientSecondary(drinkIngredient){
     let query = {
         i: `${drinkIngredient}`
@@ -223,7 +217,6 @@ function searchDrinkIdInfo(dataID){
                 data.strIngredient9, 
                 data.strIngredient10
             ];
-            // return ingredients;
             console.log("Pre-filter: " + ingredients);
             let filteredArray = ingredients.filter(function(el){
                 return el != null;
@@ -243,9 +236,6 @@ function searchDrinkIdInfo(dataID){
             $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingSelectedDrink");
         });
     });
-    ingredientsInfoOnSelectedIngDrink(dataID);
-    // infoOnSelectedDrink(dataID);
-    // ingredientsInfoOnSelectedDrink(dataID);
 }
 
 function goBackIngredientPage(){
@@ -307,11 +297,6 @@ function selectedSpiritMain(base){
         });
     });
 }
-// $("#main-container").on('click', ".alcoholBaseChoice",function(){
-//     console.log('The alcohol base has been selected');
-//     console.log("Base selected: " + $(this).attr("value"));
-//     let base = $(this).attr("value");
-// });
 
 function selectedSpiritSecondary(base){
     let query = {
@@ -376,7 +361,6 @@ function searchSpiritIdInfo(dataID){
                 data.strIngredient9, 
                 data.strIngredient10
             ];
-            // return ingredients;
             console.log("Pre-filter: " + ingredients);
             let filteredArray = ingredients.filter(function(el){
                 return el != null;
@@ -396,9 +380,6 @@ function searchSpiritIdInfo(dataID){
             $(`<li class="ingredItem">- ${item} -</li>`).appendTo("#ingSelectedDrink");
         });
     });
-    // ingredientsInfoOnSelectedIngSpiritDrink(dataID);
-    // infoOnSelectedDrink(dataID);
-    // ingredientsInfoOnSelectedDrink(dataID);
 }
 
 $("#main-container").on('click', ".popularDrink",function(){
@@ -406,7 +387,6 @@ $("#main-container").on('click', ".popularDrink",function(){
     console.log("Value: " + $(this).attr("value"));
     let name = $(this).attr("value");
     popularDrinkCallMain(name);
-    popularDrinkCallSecondary(name);
     localStorage.setItem("selectedDrink", name);
 });
 
@@ -483,7 +463,6 @@ function goForwardSelectedDrink(){
     console.log("Forward successfully");
     let preservedName = localStorage.getItem("selectedDrink");
     popularDrinkCallMain(preservedName);
-    popularDrinkCallSecondary(preservedName);
 }
 
 //Randomize Button
@@ -535,7 +514,6 @@ function randomizeTheDrinkPartOne(){
                 data.strIngredient9, 
                 data.strIngredient10
             ];
-            // return ingredients;
             console.log("Pre-filter: " + ingredients);
             let filteredArray = ingredients.filter(function(el){
                 return el != null;
@@ -561,8 +539,6 @@ function randomizeTheDrinkPartOne(){
 $('.randomB').click(function(){
     randomizeTheDrinkPartOne();
 });
-
-// randomizeTheDrink();
 
 $('#main-container').on('click','.randomAgain', function(){
     randomizeTheDrinkPartOne();
