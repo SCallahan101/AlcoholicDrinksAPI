@@ -16,7 +16,7 @@ Ex: Front page
 
 ![image](https://i.gyazo.com/5d15d8af0cc34b47faba652581375fe6.png)
 
-The front page composed several features - Search Engine, Popular drinks selection, Ingredients selection, Alcohol Bases selection, and Randomize drink. I am trying to provide the audience of users an opportunity to find or discover an alcoholic drink that may interest them. Since the pandemic started and we all are trying new stuff and looking for something new to try out. This API provides a good range of drinks to be discovered. Also, at the same time, I want to improve my skills with self-navigate with the API while using jQuery as a good practice. 
+The front page composed several features - Search Engine, Popular drinks selection, Ingredients selection, Alcohol Bases selection, and Randomize drink. I am trying to provide the audience of users an opportunity to find or discover an alcoholic drink that may interest them. Since the pandemic started and we all are trying new stuff and looking for something new to try out. This API provides a good range of drinks to be discovered. Also, at the same time, I want to improve my skills with self-navigating with the API while using jQuery as a good practice. 
 
 
 Ex: The list of drinks shown from the database
